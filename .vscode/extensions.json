@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "EditorConfig.EditorConfig",
+    "svelte.svelte-vscode",
+    "hypernym-studio.hypernym-icons"
+  ]
+}

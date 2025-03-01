@@ -1,0 +1,34 @@
+{
+  "name": "@hypernym/svelte-markdown-workspace",
+  "version": "0.0.0",
+  "author": "Hypernym Studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pkg": "pnpm --filter @hypernym/svelte-markdown build",
+    "publish:pkg": "pnpm --filter @hypernym/svelte-markdown publish:pkg",
+    "lint:pkg": "pnpm --filter @hypernym/svelte-markdown lint",
+    "format:pkg": "pnpm --filter @hypernym/svelte-markdown format",
+    "dev:play": "pnpm --filter playground-sveltekit dev",
+    "build:play": "pnpm --filter playground-sveltekit build",
+    "preview:play": "pnpm --filter playground-sveltekit preview",
+    "sync:play": "pnpm --filter playground-sveltekit sync",
+    "lint:play": "pnpm --filter playground-sveltekit lint",
+    "format:play": "pnpm --filter playground-sveltekit format"
+  },
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@hypernym/bundler": "^0.14.3",
+    "@hypernym/eslint-config": "^3.5.8",
+    "@hypernym/prettier-config": "^3.2.3",
+    "@hypernym/tsconfig": "^2.6.0",
+    "@types/node": "^22.13.5",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3"
+  }
+}
