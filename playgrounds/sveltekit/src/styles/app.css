@@ -1,0 +1,13 @@
+html {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+}
+
+a,
+a:visited {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+*-lock.*
+*.log*
+.private
+.cache
+.env
+.svelte-kit
+.vercel
+dist
+/build
+/functions
+/package
