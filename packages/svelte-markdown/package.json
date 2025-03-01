@@ -1,0 +1,62 @@
+{
+  "name": "@hypernym/svelte-markdown",
+  "version": "0.1.0",
+  "author": "Hypernym Studio",
+  "description": "Svelte Markdown Preprocessor.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypernym-studio/svelte-markdown.git"
+  },
+  "homepage": "https://github.com/hypernym-studio/svelte-markdown",
+  "funding": "https://github.com/sponsors/ivodolenc",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "svelte",
+    "markdown",
+    "preprocess",
+    "preprocessor",
+    "svelte-markdown",
+    "svelte-preprocess",
+    "svelte-plugin",
+    "svelte-mdx",
+    "svelte-kit",
+    "svelte-md",
+    "mdx",
+    "kit",
+    "md"
+  ],
+  "scripts": {
+    "build": "hyperbundler",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "publish:pkg": "npm run build && npm publish"
+  },
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "peerDependencies": {
+    "@types/node": ">=20.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  }
+}

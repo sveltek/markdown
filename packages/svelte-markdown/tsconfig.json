@@ -1,0 +1,10 @@
+{
+  "extends": "@hypernym/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@": ["./src"],
+      "@/*": ["./src/*"]
+    }
+  }
+}
