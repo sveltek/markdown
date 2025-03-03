@@ -49,6 +49,7 @@
   },
   "peerDependencies": {
     "@types/node": ">=20.0.0",
+    "svelte": ">=5.0.0",
     "typescript": ">=5.0.0"
   },
   "peerDependenciesMeta": {
@@ -58,5 +59,18 @@
     "typescript": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@hypernym/utils": "^3.4.3",
+    "esrap": "^1.4.5",
+    "hast-util-to-html": "^9.0.5",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
+    "vfile": "^6.0.3",
+    "yaml": "^2.7.0",
+    "zimmerframe": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/hast": "^3.0.4"
   }
 }
