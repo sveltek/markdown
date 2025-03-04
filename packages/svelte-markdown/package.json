@@ -31,6 +31,7 @@
     "svelte-mdx",
     "svelte-kit",
     "svelte-md",
+    "esm",
     "mdx",
     "kit",
     "md"
@@ -40,7 +41,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "publish:pkg": "npm run build && npm publish"
+    "publish:sm": "npm run build && npm publish"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {
@@ -64,6 +65,11 @@
     "@hypernym/utils": "^3.4.3",
     "esrap": "^1.4.5",
     "hast-util-to-html": "^9.0.5",
+    "magic-string": "^0.30.17",
+    "mdast-util-to-markdown": "^2.1.2",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3",
@@ -71,6 +77,7 @@
     "zimmerframe": "^1.1.2"
   },
   "devDependencies": {
-    "@types/hast": "^3.0.4"
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4"
   }
 }
