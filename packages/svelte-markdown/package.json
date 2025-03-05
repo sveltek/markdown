@@ -41,7 +41,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "publish:sm": "npm run build && npm publish"
+    "copy": "bun scripts/copy.ts",
+    "publish:sm": "npm run build && npm run copy && npm publish"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {
