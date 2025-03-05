@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build:sm": "pnpm --filter @hypernym/svelte-markdown build",
-    "publish:sm": "pnpm --filter @hypernym/svelte-markdown publish:pkg",
+    "copy:sm": "pnpm --filter @hypernym/svelte-markdown copy",
+    "publish:sm": "pnpm copy:sm && pnpm --filter @hypernym/svelte-markdown publish:sm",
     "lint:sm": "pnpm --filter @hypernym/svelte-markdown lint",
     "format:sm": "pnpm --filter @hypernym/svelte-markdown format",
     "dev:play": "pnpm --filter playground-sveltekit dev",
@@ -24,14 +25,14 @@
   },
   "devDependencies": {
     "@hypernym/bundler": "^0.14.3",
-    "@hypernym/eslint-config": "^3.5.8",
+    "@hypernym/eslint-config": "^3.5.9",
     "@hypernym/prettier-config": "^3.2.3",
     "@hypernym/tsconfig": "^2.6.0",
     "@sveltejs/kit": "^2.18.0",
     "@types/node": "^22.13.9",
     "eslint": "^9.21.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.22.1",
-    "typescript": "^5.7.3"
+    "svelte": "^5.22.3",
+    "typescript": "^5.8.2"
   }
 }
