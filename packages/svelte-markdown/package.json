@@ -44,11 +44,6 @@
     "copy": "bun scripts/copy.ts",
     "publish:sm": "npm run build && npm run copy && npm publish"
   },
-  "packageManager": "pnpm@10.5.2",
-  "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
-  },
   "peerDependencies": {
     "@types/node": ">=20.0.0",
     "svelte": ">=5.0.0",
