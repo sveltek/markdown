@@ -8,7 +8,7 @@ export default defineConfig({
       externals: [...externals, ...Object.keys(dependencies), /^svelte/],
     },
     {
-      dts: './src/types.ts',
+      dts: './src/types/index.ts',
       output: './dist/index.d.mts',
     },
   ],
