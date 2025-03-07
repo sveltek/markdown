@@ -3,5 +3,3 @@ export const meta = {
   layoutName: `Markdown__Layout`,
   componentName: `Markdown__Component`,
 }
-
-export const nl = '\n'
