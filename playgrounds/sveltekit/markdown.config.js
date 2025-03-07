@@ -11,7 +11,7 @@ export const markdownConfig = defineConfig({
   },
   layouts: {
     default: {
-      path: 'src/layouts/default/layout.svelte',
+      path: 'src/content/layouts/default/layout.svelte',
     },
   },
 })
