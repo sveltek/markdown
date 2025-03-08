@@ -28,11 +28,11 @@
     "@hypernym/eslint-config": "^3.5.9",
     "@hypernym/prettier-config": "^3.2.3",
     "@hypernym/tsconfig": "^2.6.0",
-    "@sveltejs/kit": "^2.18.0",
-    "@types/node": "^22.13.9",
-    "eslint": "^9.21.0",
+    "@sveltejs/kit": "^2.19.0",
+    "@types/node": "^22.13.10",
+    "eslint": "^9.22.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.22.5",
+    "svelte": "^5.22.6",
     "typescript": "^5.8.2"
   }
 }

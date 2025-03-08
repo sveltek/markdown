@@ -58,7 +58,6 @@
     }
   },
   "dependencies": {
-    "@hypernym/utils": "^3.4.3",
     "esrap": "^1.4.5",
     "hast-util-to-html": "^9.0.5",
     "magic-string": "^0.30.17",
