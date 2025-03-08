@@ -1,5 +1,4 @@
 import adapter from '@sveltejs/adapter-static'
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { svelteMarkdown } from '../../packages/svelte-markdown/dist/index.mjs'
 import { markdownConfig } from './markdown.config.js'
 
@@ -13,7 +12,7 @@ const config = {
       $: 'src',
     },
   },
-  preprocess: [svelteMarkdown(markdownConfig), vitePreprocess()],
+  preprocess: [svelteMarkdown(markdownConfig)],
   extensions: ['.svelte', '.md'],
 }
 
