@@ -32,6 +32,4 @@ export interface Layout {
   }
 }
 
-export type Layouts = Record<string, Layout> & {
-  default?: Layout
-}
+export type Layouts = Record<string, Layout>

@@ -11,8 +11,8 @@ export interface ASTScript {
 
 export interface FileData {
   preprocessors?: PreprocessorGroup[]
-  dependencies?: string[]
   plugins?: Plugins
+  dependencies?: string[]
   frontmatter?: Frontmatter
   components?: string[]
   layout?: Layout

@@ -1,3 +1,4 @@
+import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from './plugins'
 import type { Layouts } from './layouts'
 
@@ -8,6 +9,12 @@ export interface MarkdownConfig {
    * @default ['.md']
    */
   extensions?: string[]
+  /**
+   * Specifies a custom list of preprocessors that will be applied to a Svelte file.
+   *
+   * @default undefined
+   */
+  preprocessors?: PreprocessorGroup[]
   /**
    * Specifies the **top-level** plugins that will be used for all markdown files.
    *
@@ -40,14 +47,6 @@ export interface MarkdownConfig {
    */
   layouts?: Layouts
   /**
-   * Specifies the path to the svelte config file.
-   *
-   * By default, the markdown svelte loader detects the config automatically.
-   *
-   * @default undefined
-   */
-  svelteConfigPath?: string | false
-  /**
    * Defines frontmatter custom options.
    *
    * By default, frontmatter only supports the `YAML` format, but allows additional customization via parser.
@@ -56,7 +55,7 @@ export interface MarkdownConfig {
    */
   frontmatter?: {
     /**
-     * Specifies global data to be applied to all markdown files.
+     * Specifies frontmatter global data to be applied to all markdown files.
      *
      * @default undefined
      */
