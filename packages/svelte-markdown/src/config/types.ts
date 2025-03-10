@@ -43,6 +43,8 @@ export interface MarkdownConfig {
    *
    * Layout component serves as a wrapper for the markdown files, which means the page content is displayed via the component's children prop.
    *
+   * Can be enabled at the **top-level** (via config) or at the **file-level** (via frontmatter).
+   *
    * @default undefined
    */
   layouts?: Layouts
