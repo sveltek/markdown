@@ -1,7 +1,7 @@
 import { meta } from '@/utils'
 import { compile } from '@/compile'
 import type { PreprocessorGroup } from 'svelte/compiler'
-import type { MarkdownConfig } from '@/types'
+import type { MarkdownConfig } from '@/config/types'
 
 /**
  * Svelte Markdown Preprocessor.
