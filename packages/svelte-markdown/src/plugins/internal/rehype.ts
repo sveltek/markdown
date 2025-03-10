@@ -4,10 +4,10 @@ import { preprocess, parse } from 'svelte/compiler'
 import { visit } from 'unist-util-visit'
 import { toHtml } from 'hast-util-to-html'
 import { meta } from '@/utils'
-import type { Plugin } from 'unified'
 import type { AST } from 'svelte/compiler'
 import type { Root, Element, ElementContent } from 'hast'
 import type { FileData } from '@/compile/types'
+import type { Plugin } from '../types'
 
 const escape = (value: string): string =>
   value
