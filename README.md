@@ -141,6 +141,38 @@ const config = {
 export default config
 ```
 
+### Types
+
+If you work with `TypeScript` and `Markdown` components, you can define types to avoid potential issues when importing `.md` into `.svelte` files.
+
+```ts
+// src/app.d.ts
+
+declare global {
+  namespace App {
+    declare module '*.md' {
+      import type { Component } from 'svelte'
+
+      declare const MarkdownComponent: Component
+
+      export default MarkdownComponent
+    }
+  }
+}
+
+export {}
+```
+
+Now you can import `.md` file into `.svelte` without type errors:
+
+```html
+<!-- +page.svelte -->
+
+<script lang="ts">
+  import Comp from '$lib/content/components/comp.md'
+</script>
+```
+
 ## Examples
 
 ### Playground
