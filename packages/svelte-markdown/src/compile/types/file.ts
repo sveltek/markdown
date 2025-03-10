@@ -16,5 +16,4 @@ export interface FileData {
   frontmatter?: Frontmatter
   components?: string[]
   layout?: Layout
-  instance?: ASTScript
 }
