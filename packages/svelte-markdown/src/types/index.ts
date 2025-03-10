@@ -1,7 +1,5 @@
-export * from './file'
-export * from './plugins'
-export * from './frontmatter'
-export * from './layouts'
-export * from './config'
+export * from '@/compile/types'
+export * from '@/plugins/types'
+export * from '@/config/types'
 
 export * from '@'
