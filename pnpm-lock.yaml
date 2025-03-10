@@ -13,7 +13,7 @@ importers:
         version: 0.14.3(@types/node@22.13.10)(typescript@5.8.2)
       '@hypernym/eslint-config':
         specifier: ^3.5.9
-        version: 3.5.9(eslint-plugin-svelte@3.0.3(eslint@9.22.0)(svelte@5.22.6))(eslint@9.22.0)(svelte-eslint-parser@1.0.1(svelte@5.22.6))(typescript@5.8.2)
+        version: 3.5.9(eslint-plugin-svelte@3.1.0(eslint@9.22.0)(svelte@5.22.6))(eslint@9.22.0)(svelte-eslint-parser@1.0.1(svelte@5.22.6))(typescript@5.8.2)
       '@hypernym/prettier-config':
         specifier: ^3.2.3
         version: 3.2.3(prettier-plugin-svelte@3.3.3(prettier@3.5.3)(svelte@5.22.6))(prettier@3.5.3)
@@ -83,9 +83,6 @@ importers:
       yaml:
         specifier: ^2.7.0
         version: 2.7.0
-      zimmerframe:
-        specifier: ^1.1.2
-        version: 1.1.2
     devDependencies:
       '@types/hast':
         specifier: ^3.0.4
@@ -100,8 +97,8 @@ importers:
         specifier: ^3.0.8
         version: 3.0.8(@sveltejs/kit@2.19.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.22.6)(vite@6.2.1(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.22.6)(vite@6.2.1(@types/node@22.13.10)(yaml@2.7.0)))
       eslint-plugin-svelte:
-        specifier: ^3.0.3
-        version: 3.0.3(eslint@9.22.0)(svelte@5.22.6)
+        specifier: ^3.1.0
+        version: 3.1.0(eslint@9.22.0)(svelte@5.22.6)
       prettier-plugin-svelte:
         specifier: ^3.3.3
         version: 3.3.3(prettier@3.5.3)(svelte@5.22.6)
@@ -862,8 +859,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-plugin-svelte@3.0.3:
-    resolution: {integrity: sha512-R7HSKkLN33P6WwYhVbO+5xPT0YIpO+YAZfWxow7I1IvjVgZOxuI7zReqxFL3B7F028u16Megx+hn8SEXDNcDvw==}
+  eslint-plugin-svelte@3.1.0:
+    resolution: {integrity: sha512-hSQyLDkuuHPJby1ixZfUVrfLON42mT0Odf18MbwAgFUPuyIwJlhy3acUY1/bxt+Njucq/dQxR543zYDqkBNLmw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -1743,7 +1740,7 @@ snapshots:
       '@types/node': 22.13.10
       typescript: 5.8.2
 
-  '@hypernym/eslint-config@3.5.9(eslint-plugin-svelte@3.0.3(eslint@9.22.0)(svelte@5.22.6))(eslint@9.22.0)(svelte-eslint-parser@1.0.1(svelte@5.22.6))(typescript@5.8.2)':
+  '@hypernym/eslint-config@3.5.9(eslint-plugin-svelte@3.1.0(eslint@9.22.0)(svelte@5.22.6))(eslint@9.22.0)(svelte-eslint-parser@1.0.1(svelte@5.22.6))(typescript@5.8.2)':
     dependencies:
       '@eslint/js': 9.21.0
       '@typescript-eslint/eslint-plugin': 8.26.0(@typescript-eslint/parser@8.26.0(eslint@9.22.0)(typescript@5.8.2))(eslint@9.22.0)(typescript@5.8.2)
@@ -1751,7 +1748,7 @@ snapshots:
       eslint: 9.22.0
       globals: 16.0.0
     optionalDependencies:
-      eslint-plugin-svelte: 3.0.3(eslint@9.22.0)(svelte@5.22.6)
+      eslint-plugin-svelte: 3.1.0(eslint@9.22.0)(svelte@5.22.6)
       svelte-eslint-parser: 1.0.1(svelte@5.22.6)
       typescript: 5.8.2
     transitivePeerDependencies:
@@ -2191,7 +2188,7 @@ snapshots:
       eslint: 9.22.0
       semver: 7.7.1
 
-  eslint-plugin-svelte@3.0.3(eslint@9.22.0)(svelte@5.22.6):
+  eslint-plugin-svelte@3.1.0(eslint@9.22.0)(svelte@5.22.6):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@9.22.0)
       '@jridgewell/sourcemap-codec': 1.5.0

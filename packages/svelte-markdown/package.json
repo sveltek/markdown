@@ -68,8 +68,7 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3",
-    "yaml": "^2.7.0",
-    "zimmerframe": "^1.1.2"
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
     "@types/hast": "^3.0.4",
