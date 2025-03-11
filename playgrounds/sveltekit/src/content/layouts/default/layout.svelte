@@ -1,3 +1,7 @@
+<script lang="ts" module>
+  export { h2, h3 } from './components'
+</script>
+
 <script lang="ts">
   import type { Snippet } from 'svelte'
 
@@ -21,3 +25,13 @@
 <div id={frontmatter.layout ? `content-${frontmatter.layout}` : ''}>
   {@render children?.()}
 </div>
+
+<style>
+  h1 {
+    color: #ffffff;
+    background-image: linear-gradient(33deg, #ffffff 0%, #000000 13%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
