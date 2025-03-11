@@ -18,53 +18,18 @@
 
 <br>
 
-## Features
-
-- Free & Open Source
-- Written in TypeScript
-- Extremely Easy to Use
-- API-Friendly
-
-## Core Concepts
-
-- ...
-- ...
-- ...
-
-## Installation
-
-Install `@hypernym/svelte-markdown` package:
-
-```sh
-# via pnpm
-pnpm add -D @hypernym/svelte-markdown
-```
-
-```sh
-# via npm
-npm install -D @hypernym/svelte-markdown
-```
-
-## Usage
-
-...
-
-## API
-
-...
-
-## Options
-
-...
-
 ## Community
 
 Feel free to ask questions or share new ideas.
 
 Use the official [discussions](https://github.com/hypernym-studio/svelte-markdown/discussions) to get involved.
 
+## Contribute
+
+Check out the quick [guide](https://github.com/hypernym-studio/svelte-markdown/blob/main/.github/CONTRIBUTING.md) for more info.
+
 ## License
 
 Developed in 🇭🇷 Croatia, © Hypernym Studio.
 
-Released under the [MIT](LICENSE.txt) license.
+Released under the [MIT](https://github.com/hypernym-studio/svelte-markdown/blob/main/packages/svelte-markdown/LICENSE.txt) license.
