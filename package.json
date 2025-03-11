@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "build:sm": "pnpm --filter @hypernym/svelte-markdown build",
-    "copy:sm": "pnpm --filter @hypernym/svelte-markdown copy",
-    "publish:sm": "pnpm copy:sm && pnpm --filter @hypernym/svelte-markdown publish:sm",
+    "publish:sm": "pnpm --filter @hypernym/svelte-markdown publish:sm",
     "lint:sm": "pnpm --filter @hypernym/svelte-markdown lint",
     "format:sm": "pnpm --filter @hypernym/svelte-markdown format",
     "dev:play": "pnpm --filter playground-sveltekit dev",

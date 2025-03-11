@@ -41,7 +41,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "copy": "bun scripts/copy.ts",
     "publish:sm": "npm run build && npm publish"
   },
   "peerDependencies": {
