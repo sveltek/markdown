@@ -13,9 +13,11 @@ export function parseFile(
 ): ParsedFile {
   const { frontmatter: { marker = '-', parser, defaults = {} } = {} } = config
 
+  const parsedFile: ParsedFile = { svelte: '' }
+
   const data = vfile.data as FileData
 
-  const parsedFile: ParsedFile = { svelte: '' }
+  if (defaults) data.frontmatter = { ...defaults }
 
   let file = String(vfile)
 
