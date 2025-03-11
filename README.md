@@ -54,6 +54,10 @@ It’s a light, simple and powerful preprocessor designed specifically for manag
 
 Also, it comes with zero-config setup, built-in types and a dev-friendly API.
 
+## Docs
+
+The plan is to create online docs soon, so until its published, feel free to ask questions or share feedback in the official [Discussions](https://github.com/hypernym-studio/svelte-markdown/discussions).
+
 ## Installation
 
 Install `@hypernym/svelte-markdown` package:
@@ -171,6 +175,8 @@ Now you can import `.md` file into `.svelte` without type errors:
 <script lang="ts">
   import Comp from '$lib/content/components/comp.md'
 </script>
+
+<Comp />
 ```
 
 ## Examples
@@ -219,7 +225,7 @@ specialElements: true
 <svelte:head>
 
   <title>Custom Title - {title}</title>
-  <meta name="description" content="Description." />
+  <meta name="description" content={`Custom Description - ${description}`} />
 </svelte:head>
 
 <style>
