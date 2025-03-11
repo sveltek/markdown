@@ -1,10 +1,9 @@
 import { parse } from 'yaml'
 import type { VFile } from 'vfile'
 import type { MarkdownConfig } from '@/config/types'
-import type { Frontmatter } from './types'
+import type { FileData } from './types'
 
 interface ParsedFile {
-  frontmatter: Frontmatter
   svelte: string
 }
 
@@ -14,10 +13,9 @@ export function parseFile(
 ): ParsedFile {
   const { frontmatter: { marker = '-', parser, defaults = {} } = {} } = config
 
-  const parsedData: ParsedFile = {
-    frontmatter: {},
-    svelte: '',
-  }
+  const data = vfile.data as FileData
+
+  const parsedFile: ParsedFile = { svelte: '' }
 
   let file = String(vfile)
 
@@ -27,23 +25,23 @@ export function parseFile(
 
   if (parser) {
     const parsed = parser(file)
-    if (parsed) parsedData.frontmatter = { ...defaults, ...parsed }
+    if (parsed) data.frontmatter = { ...defaults, ...parsed }
   } else {
     const match = rgxFm.exec(file)
     if (match && match[1]) {
-      parsedData.frontmatter = { ...defaults, ...parse(match[1]) }
+      data.frontmatter = { ...defaults, ...parse(match[1]) }
       file = file.slice(match[0].length)
       vfile.value = file
     }
   }
 
-  if (parsedData.frontmatter?.specialElements) {
+  if (data.frontmatter?.specialElements) {
     if (file.includes('<svelte:')) {
       const rgxSvelte =
         /<svelte:([a-zA-Z]+)(\s[^>]*)?(?:\/>|>([\s\S]*?)<\/svelte:\1>)/g
 
       file = file.replace(rgxSvelte, (match) => {
-        parsedData.svelte += match
+        parsedFile.svelte += match
         return ''
       })
 
@@ -51,5 +49,5 @@ export function parseFile(
     }
   }
 
-  return parsedData
+  return parsedFile
 }
