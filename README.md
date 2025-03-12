@@ -181,6 +181,10 @@ Now you can import `.md` file into `.svelte` without type errors:
 
 ## Examples
 
+> [!NOTE]
+>
+> More examples will be added to the online docs.
+
 ### Playground
 
 Explore the [playground](https://github.com/hypernym-studio/svelte-markdown/tree/main/playgrounds/sveltekit) to see more details.
@@ -239,6 +243,70 @@ specialElements: true
 {description}
 
 Content...
+```
+
+### Plugins
+
+> [!NOTE]
+>
+> It's likely that some `plugins` will soon become official and available for direct import.
+>
+> ```ts
+> import { plugin } from '@hypernym/svelte-markdown/plugins'
+> ```
+
+#### Remark Reading Stats
+
+```ts
+import { visit, CONTINUE } from 'unist-util-visit'
+import readingTime from 'reading-time'
+import type { Plugin, Frontmatter } from '@hypernym/svelte-markdown'
+import type { Root } from 'mdast'
+
+/**
+ * Estimates how long an article will take to read.
+ */
+export const remarkReadingStats: Plugin<[], Root> = () => {
+  return (tree, file) => {
+    const frontmatter = file.data.frontmatter as Frontmatter
+
+    let text = ''
+
+    visit(tree, ['text', 'code'], (node) => {
+      if (node.type !== 'text' && node.type !== 'code') return CONTINUE
+
+      text += node.value
+
+      frontmatter.readingStats = readingTime(text)
+    })
+  }
+}
+```
+
+Config:
+
+```js
+svelteMarkdown({
+  plugins: {
+    remark: [remarkReadingStats],
+  },
+})
+```
+
+Usage in markdown page:
+
+```markdown
+---
+title: Page title
+---
+
+Reading stats: {JSON.stringify(readingStats)}
+
+# returns an object: { text: '1 min read', minutes: 1, time: 60000, words: 200 }
+
+Reading time: {readingStats.text}
+
+# returns an string: '1 min read'
 ```
 
 ## API
