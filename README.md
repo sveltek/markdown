@@ -43,6 +43,7 @@
 - **Unified Plugins:** Enables content transformation using widely-adopted tools like `remark` and `rehype`.
 - **Global Frontmatter:** Streamlines workflow by offering centralized options for markdown `metadata`.
 - **Special Elements:** Supports parsing Svelte special elements such as `svelte:head` etc. in markdown files.
+- **Code Highlighter:** Offers quick and easy customization for `syntax highlighting`.
 
 ## Intro
 
@@ -216,6 +217,14 @@ layout: default
 Content...
 ```
 
+```markdown
+---
+layout: false
+---
+
+Content...
+```
+
 ### Special Elements
 
 ```markdown
@@ -245,17 +254,39 @@ specialElements: true
 Content...
 ```
 
-### Plugins
+## Code Highlighting
+
+### Shiki Syntax Highlighter
+
+```ts
+import { createHighlighter } from 'shiki'
+
+const theme = 'github-dark-default'
+const highlighter = await createHighlighter({
+  themes: [theme],
+  langs: ['javascript', 'typescript', 'svelte'],
+})
+
+svelteMarkdown({
+  highlight: {
+    highlighter: async ({ lang, code }) => {
+      return highlighter.codeToHtml(code, { lang, theme })
+    },
+  },
+})
+```
+
+## Plugins
 
 > [!NOTE]
 >
-> It's likely that some `plugins` will soon become official and available for direct import.
+> It's likely that some `plugins` will soon become official and available via subpath.
 >
 > ```ts
 > import { plugin } from '@hypernym/svelte-markdown/plugins'
 > ```
 
-#### Remark Reading Stats
+### Remark Reading Stats
 
 ```ts
 import { visit, CONTINUE } from 'unist-util-visit'
