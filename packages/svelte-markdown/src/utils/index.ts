@@ -1,5 +1,2 @@
-export const meta = {
-  name: 'svelte-markdown',
-  layoutName: `Markdown__Layout`,
-  componentName: `Markdown__Component`,
-}
+export * from './internal'
+export * from './public'
