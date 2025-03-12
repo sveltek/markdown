@@ -11,6 +11,7 @@ import { getLayoutData } from './layouts'
 import { createSvelteModule } from './module'
 import { createSvelteInstance } from './instance'
 import {
+  rehypeHighlight,
   rehypeRenderCode,
   rehypeCreateLayout,
   rehypeCreateComponents,
@@ -23,8 +24,11 @@ export async function compile(
   source: string,
   { filename, config = {} }: CompileOptions,
 ): Promise<Processed> {
-  const { preprocessors = [], plugins: { remark = [], rehype = [] } = {} } =
-    config
+  const {
+    preprocessors = [],
+    plugins: { remark = [], rehype = [] } = {},
+    highlight = {},
+  } = config
 
   const file = new VFile({
     value: source,
@@ -41,8 +45,9 @@ export async function compile(
 
   const data = file.data as FileData
 
-  const layout = getLayoutData(data, config)
+  if (highlight) data.plugins?.rehype?.push([rehypeHighlight, highlight])
 
+  const layout = getLayoutData(data, config)
   if (layout) {
     data.layout = layout
     data.dependencies?.push(layout.path)
@@ -50,7 +55,7 @@ export async function compile(
       data.plugins?.remark?.push(...layout.plugins.remark)
     }
     if (layout.plugins?.rehype) {
-      data.plugins?.remark?.push(...layout.plugins.rehype)
+      data.plugins?.rehype?.push(...layout.plugins.rehype)
     }
   }
 
