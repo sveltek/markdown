@@ -26,3 +26,8 @@ specialElements: true
 {description}
 
 <Button />
+
+```ts
+// Code example
+console.log('@hypernym/svelte-markdown')
+```
