@@ -6,9 +6,7 @@ import type { Plugin } from '@/plugins/types'
 const rgxSvelteBlock = /{[#:/@]\w+.*}/
 const rgxElementOrComponent = /<[A-Za-z]+[\s\S]*>/
 
-const convertToHtml = (
-  node: Omit<Paragraph, 'type'> & { type: string; value?: string },
-): void => {
+const convertToHtml = (node: Paragraph): void => {
   let value = ''
 
   for (const child of node.children) {
@@ -16,18 +14,15 @@ const convertToHtml = (
     else value += toMarkdown(child)
   }
 
-  node.type = 'html'
-  node.value = value
+  Object.assign(node, { type: 'html', value })
 }
 
 export const remarkSvelteHtml: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, 'paragraph', (node) => {
-      const child = node.children[0]
+      const [child] = node.children
 
-      if (!child || (child.type !== 'text' && child.type !== 'html')) {
-        return CONTINUE
-      }
+      if (child?.type !== 'text' && child?.type !== 'html') return CONTINUE
 
       if (
         rgxSvelteBlock.test(child.value) ||

@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
 import { toHtml } from 'hast-util-to-html'
 import { escapeSvelte } from '@/utils'
-import type { Root, Element, ElementContent } from 'hast'
+import type { Root } from 'hast'
 import type { Plugin } from '@/plugins/types'
 
 export const rehypeRenderCode: Plugin<[], Root> = () => {
@@ -9,19 +9,18 @@ export const rehypeRenderCode: Plugin<[], Root> = () => {
     visit(tree, 'element', (node) => {
       if (!['pre', 'code'].includes(node.tagName)) return
 
-      let code: (ElementContent | Omit<Element, 'type'>) & {
-        type: string
-        value?: string
-      } = node.tagName === 'pre' ? node.children[0] : node
+      let code = node.tagName === 'pre' ? node.children[0] : node
 
-      if (!code || code.type !== 'element' || code.tagName !== 'code') return
+      if (code?.type !== 'element' || code?.tagName !== 'code') return
 
-      const value = toHtml(code as Element, {
+      const value = toHtml(code, {
         characterReferences: { useNamedReferences: true },
       })
 
-      code.type = 'raw'
-      code.value = `{@html \`${escapeSvelte(value)}\`}`
+      Object.assign(code, {
+        type: 'raw',
+        value: `{@html \`${escapeSvelte(value)}\`}`,
+      })
     })
   }
 }
