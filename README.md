@@ -531,6 +531,31 @@ svelteMarkdown({
 })
 ```
 
+### highlight
+
+- Type: `object`
+- Default: `undefined`
+
+Defines custom syntax highlighting options.
+
+#### highlighter
+
+- Type: `(data: HighlightData) => Promise<string | undefined> | string | undefined`
+- Default: `undefined`
+
+Specifies custom syntax highlighter.
+
+```ts
+svelteMarkdown({
+  highlight: {
+    highlighter: async ({ lang, meta, code }) => {
+      // ...
+      return code
+    },
+  },
+})
+```
+
 ### specialElements
 
 - Type: `boolean`
