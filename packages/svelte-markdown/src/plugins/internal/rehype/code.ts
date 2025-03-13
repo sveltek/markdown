@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import { toHtml } from 'hast-util-to-html'
-import { escapeSvelte } from '@/utils'
+import { escapeSvelte } from '@/utils/public'
 import type { Root } from 'hast'
 import type { Plugin } from '@/plugins/types'
 

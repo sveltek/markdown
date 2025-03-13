@@ -40,7 +40,7 @@ export const rehypeCreateLayout: Plugin<[], Root> = () => {
       { filename },
     )
 
-    if (dependencies) data.dependencies!.push(...dependencies)
+    if (dependencies) data.dependencies?.push(...dependencies)
 
     const { module } = parse(code, { filename, modern: true })
 
