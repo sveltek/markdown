@@ -15,6 +15,10 @@
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.mts",
+      "import": "./dist/utils/index.mjs"
     }
   },
   "files": [
