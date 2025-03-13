@@ -23,4 +23,15 @@ export type Frontmatter = Record<string, unknown> & {
    * @default undefined
    */
   specialElements?: boolean
+  /**
+   * Specifies at the **file-level** whether plugins will be used or not.
+   *
+   * Useful if you want to completely disable plugins in a specific markdown file.
+   *
+   * @default undefined
+   */
+  plugins?: {
+    remark?: false
+    rehype?: false
+  }
 }

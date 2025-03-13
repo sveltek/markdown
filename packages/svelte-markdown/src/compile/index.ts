@@ -59,6 +59,9 @@ export async function compile(
     }
   }
 
+  if (data.frontmatter?.plugins?.remark === false) data.plugins!.remark = []
+  if (data.frontmatter?.plugins?.rehype === false) data.plugins!.rehype = []
+
   const processed = await unified()
     .use(remarkParse)
     .use(remarkSvelteHtml)

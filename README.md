@@ -428,6 +428,19 @@ svelteMarkdown({
 })
 ```
 
+Also, plugins can be disabled at the **file-level**:
+
+```markdown
+---
+title: Page title
+plugins:
+  remark: false # Disables remark plugins for this file only
+  rehype: false # Disables rehype plugins for this file only
+---
+
+Content...
+```
+
 ### layouts
 
 - Type: `Record<string, Layout>`
