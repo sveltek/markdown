@@ -372,6 +372,16 @@ import { compile } from '@hypernym/svelte-markdown'
 compile(source, options)
 ```
 
+### escapeSvelte
+
+- Type: `function escapeSvelte(value: string): string`
+
+```ts
+import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
+
+escapeSvelte(value)
+```
+
 ## Options
 
 All options are documented with descriptions and examples so autocompletion will be offered as you type. Simply hover over the property and see what it does in the quick info tooltip.
