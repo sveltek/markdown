@@ -71,13 +71,12 @@ export async function compile(
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(file)
 
-  const preprocessed = await preprocess(
+  const { code, dependencies } = await preprocess(
     parsed.svelte + String(processed),
     preprocessors,
     { filename },
   )
 
-  const { code, dependencies } = preprocessed
   if (dependencies) data.dependencies?.push(...dependencies)
 
   const s = new MagicString(code)

@@ -28,7 +28,7 @@ export const rehypeCreateLayout: Plugin<[], Root> = () => {
   return async (_, vfile) => {
     const data = vfile.data as FileData
 
-    const layout = data.layout
+    const { layout } = data
     if (!layout) return
 
     const source = await readFile(layout.path, { encoding: 'utf8' })
@@ -42,12 +42,11 @@ export const rehypeCreateLayout: Plugin<[], Root> = () => {
 
     if (dependencies) data.dependencies!.push(...dependencies)
 
-    const root = parse(code, { filename, modern: true })
-    const { module } = root
+    const { module } = parse(code, { filename, modern: true })
 
     if (module) {
       const namedExports = getExportedNames(module)
-      if (namedExports.length > 0) data.components = namedExports
+      if (namedExports.length) data.components = namedExports
     }
   }
 }
