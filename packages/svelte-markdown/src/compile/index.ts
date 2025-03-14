@@ -5,7 +5,7 @@ import MagicString from 'magic-string'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
-import { meta } from '@/utils'
+import { meta, isFalse, isObject } from '@/shared'
 import { parseFile } from './file'
 import { getLayoutData } from './layouts'
 import { createSvelteModule } from './module'
@@ -17,6 +17,7 @@ import {
   rehypeCreateComponents,
 } from '@/plugins/internal/rehype'
 import { remarkSvelteHtml } from '@/plugins/internal/remark'
+import { usePlugins } from '@/plugins/internal/utils'
 import type { Processed } from 'svelte/compiler'
 import type { FileData, CompileOptions } from './types'
 
@@ -45,29 +46,32 @@ export async function compile(
 
   const data = file.data as FileData
 
+  if (isFalse(data.frontmatter?.plugins?.remark)) data.plugins!.remark = []
+  if (isFalse(data.frontmatter?.plugins?.rehype)) data.plugins!.rehype = []
   if (highlight) data.plugins?.rehype?.push([rehypeHighlight, highlight])
 
   const layout = getLayoutData(data, config)
   if (layout) {
     data.layout = layout
     data.dependencies?.push(layout.path)
-    if (layout.plugins?.remark) {
-      data.plugins?.remark?.push(...layout.plugins.remark)
-    }
-    if (layout.plugins?.rehype) {
-      data.plugins?.rehype?.push(...layout.plugins.rehype)
+    if (layout.plugins && isObject(data.frontmatter?.layout)) {
+      if (isFalse(data.frontmatter?.layout?.plugins?.remark)) {
+        layout.plugins.remark = []
+      }
+      if (isFalse(data.frontmatter?.layout?.plugins?.rehype)) {
+        layout.plugins.rehype = []
+      }
     }
   }
-
-  if (data.frontmatter?.plugins?.remark === false) data.plugins!.remark = []
-  if (data.frontmatter?.plugins?.rehype === false) data.plugins!.rehype = []
 
   const processed = await unified()
     .use(remarkParse)
     .use(remarkSvelteHtml)
-    .use(data.plugins!.remark!)
+    .use(usePlugins(data.plugins?.remark))
+    .use(usePlugins(layout?.plugins?.remark))
     .use(remarkRehype, { allowDangerousHtml: true })
-    .use(data.plugins!.rehype!)
+    .use(usePlugins(data.plugins?.rehype))
+    .use(usePlugins(layout?.plugins?.rehype))
     .use(rehypeRenderCode)
     .use(rehypeCreateLayout)
     .use(rehypeCreateComponents)

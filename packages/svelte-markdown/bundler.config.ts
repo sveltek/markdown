@@ -3,13 +3,18 @@ import { dependencies } from './package.json'
 
 export default defineConfig({
   entries: [
+    // Shared
+    {
+      input: './src/shared/index.ts',
+      output: './dist/shared/index.mjs',
+    },
     // Utils
     {
-      input: './src/utils/public/index.ts',
+      input: './src/utils/index.ts',
       output: './dist/utils/index.mjs',
     },
     {
-      dts: './src/utils/public/types.ts',
+      dts: './src/utils/types.ts',
       output: './dist/utils/index.d.mts',
     },
     // Main
@@ -19,10 +24,12 @@ export default defineConfig({
         ...externals,
         ...Object.keys(dependencies),
         /^svelte/,
-        '@/utils/public',
+        '@/shared',
+        '@/utils',
       ],
       paths: resolvePaths([
-        { find: '@/utils/public', replacement: './utils/index.mjs' },
+        { find: '@/shared', replacement: './shared/index.mjs' },
+        { find: '@/utils', replacement: './utils/index.mjs' },
       ]),
     },
     {

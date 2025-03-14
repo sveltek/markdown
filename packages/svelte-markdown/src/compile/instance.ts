@@ -1,6 +1,6 @@
 import { resolve, relative } from 'node:path'
 import { print } from 'esrap'
-import { meta } from '@/utils'
+import { meta } from '@/shared'
 import type { AST } from 'svelte/compiler'
 import type { ASTScript } from './types'
 
