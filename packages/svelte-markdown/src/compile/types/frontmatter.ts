@@ -10,9 +10,22 @@ export type Frontmatter = Record<string, unknown> & {
    *
    * To disable the layout, simply set it to `layout: false`.
    *
+   * Also, it is possible to specify at the **file-level** whether layout plugins will be used or not.
+   *
+   * Useful if you want to completely disable layout plugins in a specific markdown file.
+   *
    * @default undefined
    */
-  layout?: string | false
+  layout?:
+    | string
+    | false
+    | {
+        name: string
+        plugins?: {
+          remark?: false
+          rehype?: false
+        }
+      }
   /**
    * Specifies support for parsing Svelte `special` elements such as `svelte:head` etc. in markdown files.
    *

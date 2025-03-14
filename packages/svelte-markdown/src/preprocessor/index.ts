@@ -1,4 +1,4 @@
-import { meta } from '@/utils'
+import { meta } from '@/shared'
 import { compile } from '@/compile'
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { MarkdownConfig } from '@/config/types'

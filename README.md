@@ -480,6 +480,21 @@ layout: blog
 Content...
 ```
 
+Also, layout plugins can be disabled at the **file-level**:
+
+```markdown
+---
+title: Page title
+layout:
+  name: blog
+  plugins:
+    remark: false # Disables remark layout plugins for this file only
+    rehype: false # Disables rehype layout plugins for this file only
+---
+
+Content...
+```
+
 **Config**
 
 ```ts
