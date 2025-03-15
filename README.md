@@ -291,13 +291,13 @@ svelteMarkdown({
 ```ts
 import { visit, CONTINUE } from 'unist-util-visit'
 import readingTime from 'reading-time'
-import type { Plugin, Frontmatter } from '@hypernym/svelte-markdown'
-import type { Root } from 'mdast'
+import type { Frontmatter } from '@hypernym/svelte-markdown'
+import type { Plugin, Mdast } from '@hypernym/svelte-markdown/plugins'
 
 /**
  * Estimates how long an article will take to read.
  */
-export const remarkReadingStats: Plugin<[], Root> = () => {
+export const remarkReadingStats: Plugin<[], Mdast.Root> = () => {
   return (tree, file) => {
     const frontmatter = file.data.frontmatter as Frontmatter
 
@@ -342,6 +342,16 @@ Reading time: {readingStats.text}
 
 ## API
 
+```ts
+import {
+  svelteMarkdown,
+  defineConfig,
+  compile,
+} from '@hypernym/svelte-markdown'
+
+import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
+```
+
 ### preprocessor
 
 - Type: `function svelteMarkdown(config?: MarkdownConfig): PreprocessorGroup`
@@ -380,6 +390,65 @@ compile(source, options)
 import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
 
 escapeSvelte(value)
+```
+
+## Types
+
+Package exposes types from the `main` module path and from the `plugins` subpath for easier workflow.
+
+### main
+
+Imports all types from the main package.
+
+```ts
+import type {
+  ASTScript,
+  CompileOptions,
+  FileData,
+  Frontmatter,
+  Highlight,
+  HighlightData,
+  Highlighter,
+  Layout,
+  Layouts,
+  MarkdownConfig,
+} from '@hypernym/svelte-markdown'
+```
+
+### plugins
+
+Imports all types from `Unified`, `VFile`, `Mdast` and `Hast` as namespaces so there is no need to install additional packages.
+
+Super useful when building custom plugins.
+
+```ts
+import type {
+  Plugin,
+  Plugins,
+  PluginList,
+  Unified,
+  VFile,
+  Mdast,
+  Hast,
+} from '@hypernym/svelte-markdown/plugins'
+
+// Unified collective
+Unified.Transformer
+// ...
+
+// Virtual file
+VFile.Options
+// ...
+
+// Remark plugins
+Mdast.Root
+Mdast.Code
+// ...
+
+// Rehype plugins
+Hast.Root
+Hast.Element
+// ...
 ```
 
 ## Options
