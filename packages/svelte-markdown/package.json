@@ -19,6 +19,10 @@
     "./utils": {
       "types": "./dist/utils/index.d.mts",
       "import": "./dist/utils/index.mjs"
+    },
+    "./plugins": {
+      "types": "./dist/plugins/index.d.mts",
+      "import": "./dist/plugins/index.mjs"
     }
   },
   "files": [
@@ -61,6 +65,8 @@
     }
   },
   "dependencies": {
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4",
     "esrap": "^1.4.5",
     "hast-util-to-html": "^9.0.5",
     "magic-string": "^0.30.17",
@@ -72,9 +78,5 @@
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3",
     "yaml": "^2.7.0"
-  },
-  "devDependencies": {
-    "@types/hast": "^3.0.4",
-    "@types/mdast": "^4.0.4"
   }
 }

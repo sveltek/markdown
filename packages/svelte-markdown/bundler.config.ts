@@ -35,6 +35,23 @@ export default defineConfig({
     {
       dts: './src/types/index.ts',
       output: './dist/index.d.mts',
+      externals: [
+        ...externals,
+        ...Object.keys(dependencies),
+        '@/plugins/types',
+      ],
+      paths: resolvePaths([
+        { find: '@/plugins/types', replacement: './plugins/index.d.mts' },
+      ]),
+    },
+    // Plugins
+    {
+      input: './src/plugins/public/index.ts',
+      output: './dist/plugins/index.mjs',
+    },
+    {
+      dts: './src/plugins/public/types.ts',
+      output: './dist/plugins/index.d.mts',
     },
   ],
 })
