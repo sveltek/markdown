@@ -1,12 +1,13 @@
 import { visit } from 'unist-util-visit'
+import { isString, isArray } from '@/shared'
 import { escapeSvelte } from '@/utils'
 import type { Root, Element } from 'hast'
 import type { Plugin } from '@/plugins/types'
 import type { HighlightData, Highlight } from '@/compile/types'
 
 const getLang = (el: Element): string | undefined =>
-  (Array.isArray(el.properties.className) &&
-    typeof el.properties.className[0] === 'string' &&
+  (isArray(el.properties.className) &&
+    isString(el.properties.className[0]) &&
     el.properties.className[0]?.replace('language-', '')) ||
   undefined
 
