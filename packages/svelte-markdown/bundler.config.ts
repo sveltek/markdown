@@ -7,6 +7,8 @@ export default defineConfig({
     {
       input: './src/shared/index.ts',
       output: './dist/shared/index.mjs',
+      externals: [],
+      transformers: { resolve: true },
     },
     // Utils
     {
