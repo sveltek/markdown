@@ -9,7 +9,7 @@ description: Get started with Svelte Markdown.
 
 {description}
 
-<MarkdownTitle />
+::MarkdownTitle
 
 ## Heading Level 2
 
