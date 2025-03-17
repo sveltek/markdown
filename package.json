@@ -17,7 +17,7 @@
     "format:play": "pnpm --filter playground-sveltekit format",
     "update:all": "taze -r --interactive"
   },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.6.4",
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=10.0.0"
@@ -28,11 +28,11 @@
     "@hypernym/prettier-config": "^3.2.3",
     "@hypernym/tsconfig": "^2.6.0",
     "@hypernym/utils": "^3.4.3",
-    "@sveltejs/kit": "^2.19.2",
+    "@sveltejs/kit": "^2.20.0",
     "@types/node": "^22.13.10",
     "eslint": "^9.22.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.23.0",
+    "svelte": "^5.23.1",
     "typescript": "^5.8.2"
   }
 }
