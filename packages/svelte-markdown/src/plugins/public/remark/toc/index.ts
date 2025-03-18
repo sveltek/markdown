@@ -13,7 +13,7 @@ import type { TocOptions, TocItems } from './types'
  *
  * @example
  *
- * ```js
+ * ```ts
  * import { remarkToc } from '@hypernym/svelte-markdown/plugins'
  *
  * svelteMarkdown({
@@ -32,7 +32,6 @@ import type { TocOptions, TocItems } from './types'
  *   }
  * })
  * ```
- *
  */
 export const remarkToc: Plugin<[TocOptions?], Root> = (
   options: TocOptions = {},

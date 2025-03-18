@@ -1,12 +1,4 @@
-export interface HighlightData {
-  lang: string | undefined
-  meta: string | undefined
-  code: string | undefined
-}
-
-export type Highlighter = (
-  data: HighlightData,
-) => Promise<string | undefined> | string | undefined
+import type { Highlighter } from '@/plugins/public/types'
 
 export interface Highlight {
   /**

@@ -14,3 +14,4 @@ export type * as Mdast from 'mdast'
 export type * as Hast from 'hast'
 
 export * from './remark/types'
+export * from './rehype/types'

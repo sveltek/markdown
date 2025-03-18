@@ -11,13 +11,13 @@ import { getLayoutData } from './layouts'
 import { getEntryData } from './entries'
 import { createSvelteModule } from './module'
 import { createSvelteInstance } from './instance'
+import { remarkSvelteHtml } from '@/plugins/internal/remark'
 import {
-  rehypeHighlight,
   rehypeRenderCode,
   rehypeCreateLayout,
   rehypeCreateComponents,
 } from '@/plugins/internal/rehype'
-import { remarkSvelteHtml } from '@/plugins/internal/remark'
+import { rehypeHighlight } from '@/plugins/public'
 import { usePlugins } from '@/plugins/internal/utils'
 import type { Processed } from 'svelte/compiler'
 import type { FileData, CompileOptions } from './types'
