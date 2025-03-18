@@ -324,13 +324,36 @@ svelteMarkdown({
 
 ## Plugins
 
-> [!NOTE]
->
-> It's likely that some `plugins` will soon become official and available via subpath.
->
-> ```ts
-> import { plugin } from '@hypernym/svelte-markdown/plugins'
-> ```
+### Remark Table of Contents (Toc)
+
+```js
+import { remarkToc } from '@hypernym/svelte-markdown/plugins'
+
+svelteMarkdown({
+  plugins: {
+    remark: [remarkToc],
+  },
+})
+```
+
+Usage in markdown page:
+
+```markdown
+---
+title: Blog page
+description: Read the latest news.
+---
+
+## What's New
+
+## Featured Posts
+
+<ul>
+  {#each frontmatter.toc as toc}
+    <li><a href="#{toc.id}">{toc.value}</a></li>
+  {/each}
+</ul>
+```
 
 ### Remark Reading Stats
 
@@ -438,6 +461,14 @@ import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
 escapeSvelte(value)
 ```
 
+### plugins
+
+- Type: `Plugin`
+
+```ts
+import { remarkToc } from '@hypernym/svelte-markdown/plugins'
+```
+
 ## Types
 
 Package exposes types from the `main` module path and from the `plugins` subpath for easier workflow.
@@ -450,11 +481,11 @@ Imports all types from the main package.
 import type {
   ASTScript,
   CompileOptions,
+  Entries,
+  Entry,
   FileData,
   Frontmatter,
   Highlight,
-  HighlightData,
-  Highlighter,
   Layout,
   Layouts,
   MarkdownConfig,
@@ -476,6 +507,9 @@ import type {
   VFile,
   Mdast,
   Hast,
+  TocItem,
+  TocItems,
+  TocOptions,
 } from '@hypernym/svelte-markdown/plugins'
 
 // Unified collective
