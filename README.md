@@ -40,6 +40,7 @@
 
 - **Custom Components:** Simplifies development by supporting `import`/`export` of reusable components.
 - **Named Layouts:** Provides a powerful named `layout` mechanism to completely customize page design.
+- **Unique Entries:** Defines specialized, `entry-level` configuration adapted for all markdown files.
 - **Unified Plugins:** Enables content transformation using widely-adopted tools like `remark` and `rehype`.
 - **Global Frontmatter:** Streamlines workflow by offering centralized options for markdown `metadata`.
 - **Special Elements:** Supports parsing Svelte special elements such as `svelte:head` etc. in markdown files.
@@ -246,6 +247,25 @@ Content...
 ```markdown
 ---
 layout: false
+---
+
+Content...
+```
+
+### Unique Entries
+
+```markdown
+---
+title: Page Title
+entry: blog
+---
+
+Content...
+```
+
+```markdown
+---
+entry: false
 ---
 
 Content...
@@ -514,6 +534,8 @@ svelteMarkdown({
 
 Specifies the **top-level** plugins that will be used for all markdown files.
 
+- **Lifecycle:** `plugins` → `layout.plugins` → `entry.plugins`
+
 ```ts
 svelteMarkdown({
   plugins: {
@@ -544,6 +566,8 @@ Content...
 Specifies a custom layout records.
 
 Layout component serves as a wrapper for the markdown files, which means the page content is displayed via the component's children prop.
+
+- **Lifecycle:** `plugins` → `layout.plugins` → `entry.plugins`
 
 ```ts
 svelteMarkdown({
@@ -597,6 +621,72 @@ svelteMarkdown({
   frontmatter: {
     defaults: {
       layout: 'default',
+    },
+  },
+})
+```
+
+### entries
+
+- Type: `Record<string, Entry>`
+- Default: `undefined`
+
+Specifies a custom entry records.
+
+Entry serves as a special configuration for markdown files, which means it is similar to layout but without the need to create a custom component file.
+
+Allows unique and straightforward customization for an individual markdown file. An entry can be a page or a component.
+
+- **Lifecycle:** `plugins` → `layout.plugins` → `entry.plugins`
+
+```ts
+svelteMarkdown({
+  entries: {
+    blog: {
+      plugins: {
+        remark: [], // Specifies custom `remark` plugins at the entry-level (optional).
+        rehype: [], // Specifies custom `rehype` plugins at the entry-level (optional).
+      },
+    },
+  },
+})
+```
+
+Can be enabled at the **top-level** (via config) or at the **file-level** (via frontmatter).
+
+**File-level**
+
+```markdown
+---
+title: Page title
+entry: blog
+---
+
+Content...
+```
+
+Also, entry plugins can be disabled at the **file-level**:
+
+```markdown
+---
+title: Page title
+entry:
+  name: blog
+  plugins:
+    remark: false # Disables remark entry plugins for this file only
+    rehype: false # Disables rehype entry plugins for this file only
+---
+
+Content...
+```
+
+**Config**
+
+```ts
+svelteMarkdown({
+  frontmatter: {
+    defaults: {
+      entry: 'default',
     },
   },
 })
