@@ -13,7 +13,7 @@ importers:
         version: 0.14.3(@types/node@22.13.10)(typescript@5.8.2)
       '@hypernym/eslint-config':
         specifier: ^3.5.9
-        version: 3.5.9(eslint-plugin-svelte@3.3.0(eslint@9.22.0)(svelte@5.23.1))(eslint@9.22.0)(svelte-eslint-parser@1.1.0(svelte@5.23.1))(typescript@5.8.2)
+        version: 3.5.9(eslint-plugin-svelte@3.3.2(eslint@9.22.0)(svelte@5.23.1))(eslint@9.22.0)(svelte-eslint-parser@1.1.0(svelte@5.23.1))(typescript@5.8.2)
       '@hypernym/prettier-config':
         specifier: ^3.2.3
         version: 3.2.3(prettier-plugin-svelte@3.3.3(prettier@3.5.3)(svelte@5.23.1))(prettier@3.5.3)
@@ -24,8 +24,8 @@ importers:
         specifier: ^3.4.3
         version: 3.4.3(@types/node@22.13.10)(typescript@5.8.2)
       '@sveltejs/kit':
-        specifier: ^2.20.0
-        version: 2.20.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))
+        specifier: ^2.20.1
+        version: 2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))
       '@types/node':
         specifier: ^22.13.10
         version: 22.13.10
@@ -97,10 +97,10 @@ importers:
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.8
-        version: 3.0.8(@sveltejs/kit@2.20.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))
+        version: 3.0.8(@sveltejs/kit@2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))
       eslint-plugin-svelte:
-        specifier: ^3.3.0
-        version: 3.3.0(eslint@9.22.0)(svelte@5.23.1)
+        specifier: ^3.3.2
+        version: 3.3.2(eslint@9.22.0)(svelte@5.23.1)
       prettier-plugin-svelte:
         specifier: ^3.3.3
         version: 3.3.3(prettier@3.5.3)(svelte@5.23.1)
@@ -632,8 +632,8 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
-  '@sveltejs/kit@2.20.0':
-    resolution: {integrity: sha512-xCUGevE2GFhpDAxZiVOsk6HKaBicwU7uWYcMOcpHCDcjoN6mKBIeMEzuddRMqSA4zjbeA+RcillCv1ppkWRwSQ==}
+  '@sveltejs/kit@2.20.1':
+    resolution: {integrity: sha512-XXd6hQKi9le+8rYIKsxTfgABjB3b8S21qZmMUTvAC5kuVA1AXvYPVEmxrMhRqyOacXu3e6P3ag5HtJi6j9K7UQ==}
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -881,8 +881,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-plugin-svelte@3.3.0:
-    resolution: {integrity: sha512-pgGY5mT/ftZjG6xO4HltcQvne3rWUjStVDlvEZCR5cQKmZADbQp9kDmUc+fhIo1oO2HlXP25A+g4pkaoiBCxqg==}
+  eslint-plugin-svelte@3.3.2:
+    resolution: {integrity: sha512-b2IJ2w0hJw5M3mj4aBLc6Gk6nMG3LFecUuPYV628G8Je/8ewJb80LR8fwTX9gOlqykTBNM18IGL7Hkz8K+WLkQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -1774,7 +1774,7 @@ snapshots:
       '@types/node': 22.13.10
       typescript: 5.8.2
 
-  '@hypernym/eslint-config@3.5.9(eslint-plugin-svelte@3.3.0(eslint@9.22.0)(svelte@5.23.1))(eslint@9.22.0)(svelte-eslint-parser@1.1.0(svelte@5.23.1))(typescript@5.8.2)':
+  '@hypernym/eslint-config@3.5.9(eslint-plugin-svelte@3.3.2(eslint@9.22.0)(svelte@5.23.1))(eslint@9.22.0)(svelte-eslint-parser@1.1.0(svelte@5.23.1))(typescript@5.8.2)':
     dependencies:
       '@eslint/js': 9.22.0
       '@typescript-eslint/eslint-plugin': 8.26.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0)(typescript@5.8.2))(eslint@9.22.0)(typescript@5.8.2)
@@ -1782,7 +1782,7 @@ snapshots:
       eslint: 9.22.0
       globals: 16.0.0
     optionalDependencies:
-      eslint-plugin-svelte: 3.3.0(eslint@9.22.0)(svelte@5.23.1)
+      eslint-plugin-svelte: 3.3.2(eslint@9.22.0)(svelte@5.23.1)
       svelte-eslint-parser: 1.1.0(svelte@5.23.1)
       typescript: 5.8.2
     transitivePeerDependencies:
@@ -1965,11 +1965,11 @@ snapshots:
     dependencies:
       acorn: 8.14.1
 
-  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.20.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))':
+  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))':
     dependencies:
-      '@sveltejs/kit': 2.20.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))
+      '@sveltejs/kit': 2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))
 
-  '@sveltejs/kit@2.20.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))':
+  '@sveltejs/kit@2.20.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0)))(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.0.3(svelte@5.23.1)(vite@6.2.2(@types/node@22.13.10)(yaml@2.7.0))
       '@types/cookie': 0.6.0
@@ -2253,7 +2253,7 @@ snapshots:
       eslint: 9.22.0
       semver: 7.7.1
 
-  eslint-plugin-svelte@3.3.0(eslint@9.22.0)(svelte@5.23.1):
+  eslint-plugin-svelte@3.3.2(eslint@9.22.0)(svelte@5.23.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.5.1(eslint@9.22.0)
       '@jridgewell/sourcemap-codec': 1.5.0

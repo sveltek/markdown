@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.8",
-    "eslint-plugin-svelte": "^3.3.0",
+    "eslint-plugin-svelte": "^3.3.2",
     "prettier-plugin-svelte": "^3.3.3",
     "shiki": "^3.2.1",
     "svelte-check": "^4.1.5",
