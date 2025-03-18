@@ -19,6 +19,25 @@ export default defineConfig({
       dts: './src/utils/types.ts',
       output: './dist/utils/index.d.mts',
     },
+    // Plugins
+    {
+      input: './src/plugins/public/index.ts',
+      output: './dist/plugins/index.mjs',
+      externals: [
+        ...externals,
+        ...Object.keys(dependencies),
+        '@/shared',
+        '@/utils',
+      ],
+      paths: resolvePaths([
+        { find: '@/shared', replacement: '../shared/index.mjs' },
+        { find: '@/utils', replacement: '../utils/index.mjs' },
+      ]),
+    },
+    {
+      dts: './src/plugins/public/types.ts',
+      output: './dist/plugins/index.d.mts',
+    },
     // Main
     {
       input: './src/index.ts',
@@ -28,10 +47,12 @@ export default defineConfig({
         /^svelte/,
         '@/shared',
         '@/utils',
+        '@/plugins/public',
       ],
       paths: resolvePaths([
         { find: '@/shared', replacement: './shared/index.mjs' },
         { find: '@/utils', replacement: './utils/index.mjs' },
+        { find: '@/plugins/public', replacement: './plugins/index.mjs' },
       ]),
     },
     {
@@ -41,19 +62,15 @@ export default defineConfig({
         ...externals,
         ...Object.keys(dependencies),
         '@/plugins/types',
+        '@/plugins/public/types',
       ],
       paths: resolvePaths([
         { find: '@/plugins/types', replacement: './plugins/index.d.mts' },
+        {
+          find: '@/plugins/public/types',
+          replacement: './plugins/index.d.mts',
+        },
       ]),
-    },
-    // Plugins
-    {
-      input: './src/plugins/public/index.ts',
-      output: './dist/plugins/index.mjs',
-    },
-    {
-      dts: './src/plugins/public/types.ts',
-      output: './dist/plugins/index.d.mts',
     },
   ],
 })
