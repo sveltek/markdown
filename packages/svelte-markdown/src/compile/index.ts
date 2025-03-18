@@ -8,6 +8,7 @@ import rehypeStringify from 'rehype-stringify'
 import { meta, isFalse, isObject } from '@/shared'
 import { parseFile } from './file'
 import { getLayoutData } from './layouts'
+import { getEntryData } from './entries'
 import { createSvelteModule } from './module'
 import { createSvelteInstance } from './instance'
 import {
@@ -64,14 +65,28 @@ export async function compile(
     }
   }
 
+  const entry = getEntryData(data, config)
+  if (entry) {
+    if (entry.plugins && isObject(data.frontmatter?.entry)) {
+      if (isFalse(data.frontmatter?.entry?.plugins?.remark)) {
+        entry.plugins.remark = []
+      }
+      if (isFalse(data.frontmatter?.entry?.plugins?.rehype)) {
+        entry.plugins.rehype = []
+      }
+    }
+  }
+
   const processed = await unified()
     .use(remarkParse)
     .use(remarkSvelteHtml)
     .use(usePlugins(data.plugins?.remark))
     .use(usePlugins(layout?.plugins?.remark))
+    .use(usePlugins(entry?.plugins?.remark))
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(usePlugins(data.plugins?.rehype))
     .use(usePlugins(layout?.plugins?.rehype))
+    .use(usePlugins(entry?.plugins?.rehype))
     .use(rehypeRenderCode)
     .use(rehypeCreateLayout)
     .use(rehypeCreateComponents)

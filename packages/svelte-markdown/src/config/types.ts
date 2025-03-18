@@ -1,6 +1,6 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from '@/plugins/types'
-import type { Layouts, Highlight } from '@/compile/types'
+import type { Layouts, Entries, Highlight } from '@/compile/types'
 
 export interface MarkdownConfig {
   /**
@@ -15,6 +15,37 @@ export interface MarkdownConfig {
    * @default undefined
    */
   preprocessors?: PreprocessorGroup[]
+  /**
+   * Defines frontmatter custom options.
+   *
+   * By default, frontmatter only supports the `YAML` format, but allows additional customization via parser.
+   *
+   * @default undefined
+   */
+  frontmatter?: {
+    /**
+     * Specifies frontmatter global data to be applied to all markdown files.
+     *
+     * @default undefined
+     */
+    defaults?: Record<string, unknown>
+    /**
+     * Specifies the **start/end** symbols for the frontmatter content block.
+     *
+     * It only works in combination with the default parser.
+     *
+     * @default '-'
+     */
+    marker?: string
+    /**
+     * Specifies a custom parser for frontmatter.
+     *
+     * Allows adaptation to other formats such as `TOML` or `JSON`.
+     *
+     * @default undefined
+     */
+    parser?: (value: string) => Record<string, unknown> | void
+  }
   /**
    * Specifies the **top-level** plugins that will be used for all markdown files.
    *
@@ -49,36 +80,17 @@ export interface MarkdownConfig {
    */
   layouts?: Layouts
   /**
-   * Defines frontmatter custom options.
+   * Specifies a custom entry records.
    *
-   * By default, frontmatter only supports the `YAML` format, but allows additional customization via parser.
+   * Entry serves as a special configuration for markdown files, which means it is similar to layout but without the need to create a custom component file.
+   *
+   * Allows unique and straightforward customization for an individual markdown file. An entry can be a page or a component.
+   *
+   * Can be enabled at the **top-level** (via config) or at the **file-level** (via frontmatter).
    *
    * @default undefined
    */
-  frontmatter?: {
-    /**
-     * Specifies frontmatter global data to be applied to all markdown files.
-     *
-     * @default undefined
-     */
-    defaults?: Record<string, unknown>
-    /**
-     * Specifies the **start/end** symbols for the frontmatter content block.
-     *
-     * It only works in combination with the default parser.
-     *
-     * @default '-'
-     */
-    marker?: string
-    /**
-     * Specifies a custom parser for frontmatter.
-     *
-     * Allows adaptation to other formats such as `TOML` or `JSON`.
-     *
-     * @default undefined
-     */
-    parser?: (value: string) => Record<string, unknown> | void
-  }
+  entries?: Entries
   /**
    * Defines custom syntax highlighting options.
    *
