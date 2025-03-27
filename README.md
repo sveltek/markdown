@@ -1,20 +1,10 @@
-<h1 align="center">Svelte Markdown</h1>
-
-<p align="center">Svelte Markdown Preprocessor.</p>
-
 <p align="center">
-  <a href="https://github.com/hypernym-studio/svelte-markdown">Repository</a>
-  <span>✦</span>
-  <a href="https://www.npmjs.com/package/@hypernym/svelte-markdown">Package</a>
-  <span>✦</span>
-  <a href="https://github.com/hypernym-studio/svelte-markdown/releases">Releases</a>
-  <span>✦</span>
-  <a href="https://github.com/hypernym-studio/svelte-markdown/discussions">Discussions</a>
+  <img src="./media/cover.png">
 </p>
 
-<br>
+<h1 align="center">@sveltek/markdown</h1>
 
-<pre align="center">pnpm add -D @hypernym/svelte-markdown</pre>
+<p align="center">Svelte Markdown Preprocessor.</p>
 
 <br>
 
@@ -22,19 +12,11 @@
 >
 > While the **API** is solid and mostly complete, some changes may still occur before the first stable release.
 >
-> Ideas, [suggestions](https://github.com/hypernym-studio/svelte-markdown/discussions) and code [contributions](https://github.com/hypernym-studio/svelte-markdown/blob/main/.github/CONTRIBUTING.md) are welcome.
+> Ideas, [suggestions](https://github.com/sveltek/markdown/discussions) and code [contributions](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) are welcome.
 >
-> If you find any issues or bugs, please [report](https://github.com/hypernym-studio/svelte-markdown/issues/new/choose) them so the project can be improved.
+> If you find any issues or bugs, please [report](https://github.com/sveltek/markdown/issues/new/choose) them so the project can be improved.
 
 <br>
-
-## Features
-
-- Free & Open Source
-- Written in TypeScript
-- Extremely Easy to Use
-- Zero-config setup
-- API-Friendly
 
 ## Core Concepts
 
@@ -48,8 +30,6 @@
 
 ## Intro
 
-> This project was inspired by [MDsveX](https://github.com/pngwn/MDsveX) — thanks to its authors for their awesome work!
-
 **Svelte Markdown** has been completely rewritten to take full advantage of `Svelte 5` and its `Runes` mode.
 
 It’s a light, simple and powerful preprocessor designed specifically for managing `Markdown` content within `Svelte` projects.
@@ -58,20 +38,18 @@ Also, it comes with zero-config setup, built-in types and a dev-friendly API.
 
 ## Docs
 
-The plan is to create online docs soon, so until its published, feel free to ask questions or share feedback in the official [Discussions](https://github.com/hypernym-studio/svelte-markdown/discussions).
+The plan is to create online docs soon, so until its published, feel free to ask questions or share feedback in the official [Discussions](https://github.com/sveltek/markdown/discussions).
 
 ## Installation
 
-Install `@hypernym/svelte-markdown` package:
-
 ```sh
 # via pnpm
-pnpm add -D @hypernym/svelte-markdown
+pnpm add -D @sveltek/markdown
 ```
 
 ```sh
 # via npm
-npm install -D @hypernym/svelte-markdown
+npm install -D @sveltek/markdown
 ```
 
 ## Usage
@@ -82,7 +60,7 @@ npm install -D @hypernym/svelte-markdown
 // svelte.config.js
 
 import adapter from '@sveltejs/adapter-static'
-import { svelteMarkdown } from '@hypernym/svelte-markdown'
+import { svelteMarkdown } from '@sveltek/markdown'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -99,15 +77,15 @@ export default config
 ```js
 // markdown.config.js
 
-import { defineConfig } from '@hypernym/svelte-markdown'
+import { defineConfig } from '@sveltek/markdown'
 
 export const markdownConfig = defineConfig({
   frontmatter: {
     defaults: {
       layout: 'default',
       author: {
-        name: 'Hypernym Studio',
-        url: 'https://github.com/hypernym-studio',
+        name: 'Sveltek',
+        url: 'https://github.com/sveltek',
       },
       // other global data...
     },
@@ -134,7 +112,7 @@ Import the config to the `svelte.config.js` file:
 // svelte.config.js
 
 import adapter from '@sveltejs/adapter-static'
-import { svelteMarkdown } from '@hypernym/svelte-markdown'
+import { svelteMarkdown } from '@sveltek/markdown'
 import { markdownConfig } from './markdown.config.js'
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -189,7 +167,7 @@ Now you can import `.md` file into `.svelte` without type errors:
 
 ### Playground
 
-Explore the [playground](https://github.com/hypernym-studio/svelte-markdown/tree/main/playgrounds/sveltekit) to see more details.
+Explore the [playground](https://github.com/sveltek/markdown/tree/main/playgrounds/sveltekit) to see more details.
 
 ### Custom Components
 
@@ -327,7 +305,7 @@ svelteMarkdown({
 ### Remark Table of Contents (Toc)
 
 ```js
-import { remarkToc } from '@hypernym/svelte-markdown/plugins'
+import { remarkToc } from '@sveltek/unplugins'
 
 svelteMarkdown({
   plugins: {
@@ -360,8 +338,8 @@ description: Read the latest news.
 ```ts
 import { visit, CONTINUE } from 'unist-util-visit'
 import readingTime from 'reading-time'
-import type { Frontmatter } from '@hypernym/svelte-markdown'
-import type { Plugin, Mdast } from '@hypernym/svelte-markdown/plugins'
+import type { Frontmatter } from '@sveltek/markdown'
+import type { Plugin, Mdast } from '@sveltek/unplugins'
 
 /**
  * Estimates how long an article will take to read.
@@ -412,13 +390,9 @@ Reading time: {readingStats.text}
 ## API
 
 ```ts
-import {
-  svelteMarkdown,
-  defineConfig,
-  compile,
-} from '@hypernym/svelte-markdown'
+import { svelteMarkdown, defineConfig, compile } from '@sveltek/markdown'
 
-import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
+import { escapeSvelte } from '@sveltek/markdown/utils'
 ```
 
 ### preprocessor
@@ -426,7 +400,7 @@ import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
 - Type: `function svelteMarkdown(config?: MarkdownConfig): PreprocessorGroup`
 
 ```ts
-import { svelteMarkdown } from '@hypernym/svelte-markdown'
+import { svelteMarkdown } from '@sveltek/markdown'
 
 svelteMarkdown(config)
 ```
@@ -436,7 +410,7 @@ svelteMarkdown(config)
 - Type: `function defineConfig(config: MarkdownConfig): MarkdownConfig`
 
 ```ts
-import { defineConfig } from '@hypernym/svelte-markdown'
+import { defineConfig } from '@sveltek/markdown'
 
 defineConfig(config)
 ```
@@ -446,7 +420,7 @@ defineConfig(config)
 - Type: `function compile(source: string, options: CompileOptions): Promise<Processed>`
 
 ```ts
-import { compile } from '@hypernym/svelte-markdown'
+import { compile } from '@sveltek/markdown'
 
 compile(source, options)
 ```
@@ -456,22 +430,12 @@ compile(source, options)
 - Type: `function escapeSvelte(value: string): string`
 
 ```ts
-import { escapeSvelte } from '@hypernym/svelte-markdown/utils'
+import { escapeSvelte } from '@sveltek/markdown/utils'
 
 escapeSvelte(value)
 ```
 
-### plugins
-
-- Type: `Plugin`
-
-```ts
-import { remarkToc } from '@hypernym/svelte-markdown/plugins'
-```
-
 ## Types
-
-Package exposes types from the `main` module path and from the `plugins` subpath for easier workflow.
 
 ### main
 
@@ -489,46 +453,10 @@ import type {
   Layout,
   Layouts,
   MarkdownConfig,
-} from '@hypernym/svelte-markdown'
-```
-
-### plugins
-
-Imports all types from `Unified`, `VFile`, `Mdast` and `Hast` as namespaces so there is no need to install additional packages.
-
-Super useful when building custom plugins.
-
-```ts
-import type {
   Plugin,
-  Plugins,
   PluginList,
-  Unified,
-  VFile,
-  Mdast,
-  Hast,
-  TocItem,
-  TocItems,
-  TocOptions,
-} from '@hypernym/svelte-markdown/plugins'
-
-// Unified collective
-Unified.Transformer
-// ...
-
-// Virtual file
-VFile.Options
-// ...
-
-// Remark plugins
-Mdast.Root
-Mdast.Code
-// ...
-
-// Rehype plugins
-Hast.Root
-Hast.Element
-// ...
+  Plugins,
+} from '@sveltek/markdown'
 ```
 
 ## Options
@@ -746,7 +674,7 @@ Specifies frontmatter global data to be applied to all markdown files.
 svelteMarkdown({
   frontmatter: {
     defaults: {
-      author: 'Hypernym Studio',
+      author: 'Sveltek',
     },
   },
 })
@@ -849,18 +777,22 @@ svelteMarkdown({
 })
 ```
 
+## Credits
+
+- Inspired by [MDsveX](https://github.com/pngwn/MDsveX)
+
 ## Community
 
 Feel free to ask questions or share new ideas.
 
-Use the official [discussions](https://github.com/hypernym-studio/svelte-markdown/discussions) to get involved.
+Use the official [discussions](https://github.com/sveltek/markdown/discussions) to get involved.
 
 ## Contribute
 
-Check out the quick [guide](https://github.com/hypernym-studio/svelte-markdown/blob/main/.github/CONTRIBUTING.md) for more info.
+Check out the quick [guide](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) for more info.
 
 ## License
 
-Developed in 🇭🇷 Croatia, © Hypernym Studio.
+Developed in 🇭🇷 Croatia, © Sveltek.
 
 Released under the [MIT](LICENSE.txt) license.

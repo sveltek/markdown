@@ -1,38 +1,39 @@
 {
-  "name": "@hypernym/svelte-markdown-workspace",
+  "name": "@sveltek/markdown-workspace",
   "version": "0.0.0",
-  "author": "Hypernym Studio",
+  "author": "Sveltek",
   "private": true,
   "type": "module",
   "scripts": {
-    "build:sm": "pnpm --filter @hypernym/svelte-markdown build",
-    "publish:sm": "pnpm --filter @hypernym/svelte-markdown publish:sm",
-    "lint:sm": "pnpm --filter @hypernym/svelte-markdown lint",
-    "format:sm": "pnpm --filter @hypernym/svelte-markdown format",
+    "build:md": "pnpm --filter @sveltek/markdown build",
+    "publish:md": "pnpm --filter @sveltek/markdown publish:md",
+    "lint:md": "pnpm --filter @sveltek/markdown lint",
+    "format:md": "pnpm --filter @sveltek/markdown format",
     "dev:play": "pnpm --filter playground-sveltekit dev",
     "build:play": "pnpm --filter playground-sveltekit build",
     "preview:play": "pnpm --filter playground-sveltekit preview",
     "sync:play": "pnpm --filter playground-sveltekit sync",
     "lint:play": "pnpm --filter playground-sveltekit lint",
     "format:play": "pnpm --filter playground-sveltekit format",
+    "format:root": "prettier --write . '!playgrounds' '!packages'",
     "update:all": "taze -r --interactive"
   },
-  "packageManager": "pnpm@10.6.4",
+  "packageManager": "pnpm@10.7.0",
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=10.0.0"
   },
   "devDependencies": {
     "@hypernym/bundler": "^0.14.3",
-    "@hypernym/eslint-config": "^3.5.9",
-    "@hypernym/prettier-config": "^3.2.3",
-    "@hypernym/tsconfig": "^2.6.0",
     "@hypernym/utils": "^3.4.3",
-    "@sveltejs/kit": "^2.20.1",
-    "@types/node": "^22.13.10",
-    "eslint": "^9.22.0",
+    "@sveltejs/kit": "^2.20.2",
+    "@sveltek/eslint-config": "^1.0.0",
+    "@sveltek/prettier-config": "^1.0.2",
+    "@sveltek/tsconfig": "^1.0.0",
+    "@types/node": "^22.13.14",
+    "eslint": "^9.23.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.23.2",
+    "svelte": "^5.25.3",
     "typescript": "^5.8.2"
   }
 }

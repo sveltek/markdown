@@ -1,1 +1,1 @@
-export { default } from '@hypernym/prettier-config'
+export { default } from '@sveltek/prettier-config'
