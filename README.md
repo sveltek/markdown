@@ -12,7 +12,7 @@
 >
 > While the **API** is solid and mostly complete, some changes may still occur before the first stable release.
 >
-> Ideas, [suggestions](https://github.com/sveltek/markdown/discussions) and code [contributions](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) are welcome.
+> Ideas, [suggestions](https://github.com/sveltek/markdown/discussions) and code [contributions](.github/CONTRIBUTING.md) are welcome.
 >
 > If you find any issues or bugs, please [report](https://github.com/sveltek/markdown/issues/new/choose) them so the project can be improved.
 
@@ -789,7 +789,7 @@ Use the official [discussions](https://github.com/sveltek/markdown/discussions) 
 
 ## Contribute
 
-Check out the quick [guide](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) for more info.
+Check out the quick [guide](.github/CONTRIBUTING.md) for more info.
 
 ## License
 
