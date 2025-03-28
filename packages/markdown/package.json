@@ -44,7 +44,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "publish:sm": "npm run build && npm publish"
+    "publish:md": "npm run build && npm publish"
   },
   "peerDependencies": {
     "@types/node": ">=20.0.0",
