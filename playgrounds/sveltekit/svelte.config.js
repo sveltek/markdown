@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-static'
-import { svelteMarkdown } from '../../packages/svelte-markdown/dist/index.mjs'
+import { svelteMarkdown } from '../../packages/markdown/dist/index.mjs'
 import { markdownConfig } from './markdown.config.js'
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -14,6 +14,9 @@ const config = {
   },
   preprocess: [svelteMarkdown(markdownConfig)],
   extensions: ['.svelte', '.md'],
+  compilerOptions: {
+    runes: true,
+  },
 }
 
 export default config

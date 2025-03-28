@@ -1,0 +1,77 @@
+{
+  "name": "@sveltek/markdown",
+  "version": "0.10.0",
+  "author": "Sveltek",
+  "description": "Svelte Markdown Preprocessor.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sveltek/markdown.git"
+  },
+  "homepage": "https://github.com/sveltek/markdown",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.mts",
+      "import": "./dist/utils/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "sveltek",
+    "svelte",
+    "sveltekit",
+    "markdown",
+    "preprocess",
+    "preprocessor",
+    "svelte-markdown",
+    "svelte-preprocess",
+    "svelte-plugin",
+    "svelte-mdx",
+    "svelte-md",
+    "mdx",
+    "kit",
+    "md"
+  ],
+  "scripts": {
+    "build": "hyperbundler",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "publish:md": "npm run build && npm publish"
+  },
+  "peerDependencies": {
+    "@types/node": ">=20.0.0",
+    "svelte": ">=5.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4",
+    "esrap": "^1.4.5",
+    "hast-util-to-html": "^9.0.5",
+    "magic-string": "^0.30.17",
+    "mdast-util-to-markdown": "^2.1.2",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
+    "vfile": "^6.0.3",
+    "yaml": "^2.7.0"
+  }
+}

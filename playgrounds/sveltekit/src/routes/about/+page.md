@@ -29,5 +29,5 @@ specialElements: true
 
 ```ts
 // Code example
-console.log('@hypernym/svelte-markdown')
+console.log('@sveltek/markdown')
 ```

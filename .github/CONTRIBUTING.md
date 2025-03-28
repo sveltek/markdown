@@ -13,13 +13,13 @@ Before submitting any contribution, please make sure to read the following guide
 
 A great way to contribute to the project is to send a detailed report if you find an issue.
 
-[Bug report](https://github.com/hypernym-studio/svelte-markdown/issues/new/choose)
+[Bug report](https://github.com/sveltek/markdown/issues/new/choose)
 
 ## Feature Requests
 
 Feel free to suggest a new idea or a quick enhancement that you would love to see.
 
-[Feature request](https://github.com/hypernym-studio/svelte-markdown/discussions/new?category=ideas)
+[Feature request](https://github.com/sveltek/markdown/discussions/new?category=ideas)
 
 ## Pull Requests
 
@@ -27,10 +27,10 @@ Before you create a pull request, first open a `Bug report` or `Feature request`
 
 For some quick changes, such as typo fixes or broken links, it's ok to open a small PR.
 
-[Pull request](https://github.com/hypernym-studio/svelte-markdown/pulls)
+[Pull request](https://github.com/sveltek/markdown/pulls)
 
 ## Questions & Help
 
 Official forum is the best place to ask for help or discuss all questions related to this project.
 
-[Visit Discussions](https://github.com/hypernym-studio/svelte-markdown/discussions)
+[Visit Discussions](https://github.com/sveltek/markdown/discussions)
