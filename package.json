@@ -20,7 +20,7 @@
     "lint:play": "pnpm --filter playground-sveltekit lint",
     "format:play": "pnpm --filter playground-sveltekit format",
     "format:root": "prettier --write . '!playgrounds' '!packages'",
-    "create:release": "gh workflow run release --inputs package_name=$1",
+    "create:release": "gh workflow run release --field package_name=$1",
     "update:all": "taze -r --interactive"
   },
   "packageManager": "pnpm@10.7.0",
