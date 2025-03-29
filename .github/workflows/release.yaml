@@ -36,8 +36,10 @@ jobs:
       - name: Create GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE_NAME: ${{ env.package_name }}
+          PACKAGE_VERSION: ${{ env.package_version }}
         run: |
-          echo "Creating release for ${PACKAGE_NAME}@${PACKAGE_VERSION}..."
-          gh release create "${PACKAGE_NAME}@${PACKAGE_VERSION}" \
-            --title "${PACKAGE_NAME}@${PACKAGE_VERSION}" \
+          echo "Creating release for ${{ env.package_name }}@${{ env.package_version }}..."
+          gh release create "${{ env.package_name }}@${{ env.package_version }}" \
+            --title "${{ env.package_name }}@${{ env.package_version }}" \
             --generate-notes
