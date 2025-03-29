@@ -1,5 +1,6 @@
 import { createHighlighter } from 'shiki'
 import { defineConfig } from '../../packages/markdown/dist/index.mjs'
+import { remarkToc } from '../../packages/unplugins/dist/index.mjs'
 
 const theme = 'github-dark-default'
 const highlighter = await createHighlighter({
@@ -20,6 +21,13 @@ export const markdownConfig = defineConfig({
   layouts: {
     default: {
       path: 'src/content/layouts/default/layout.svelte',
+    },
+  },
+  entries: {
+    blog: {
+      plugins: {
+        remark: [remarkToc],
+      },
     },
   },
   highlight: {
