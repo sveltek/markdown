@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sveltek/markdown.git"
+    "url": "https://github.com/sveltek/markdown",
+    "directory": "packages/markdown"
   },
   "homepage": "https://github.com/sveltek/markdown",
   "type": "module",
