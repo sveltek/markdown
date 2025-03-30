@@ -7,18 +7,16 @@ on:
         description: 'Package Name'
         required: true
 
-permissions:
-  contents: write
-
 jobs:
   create-release:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Get package details
         id: details
