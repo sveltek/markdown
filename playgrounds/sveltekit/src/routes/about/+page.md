@@ -2,6 +2,7 @@
 title: About page
 description: Svelte Markdown Preprocessor.
 layout: false
+entry: about
 specialElements: true
 ---
 

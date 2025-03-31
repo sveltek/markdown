@@ -39,7 +39,9 @@
     "publish:unplugins": "npm run build && npm publish"
   },
   "peerDependencies": {
+    "@sveltek/markdown": ">=0.10.0",
     "@types/node": ">=20.0.0",
+    "shiki": ">=3.0.0",
     "typescript": ">=5.0.0"
   },
   "peerDependenciesMeta": {
@@ -48,12 +50,23 @@
     },
     "typescript": {
       "optional": true
+    },
+    "@sveltek/markdown": {
+      "optional": true
+    },
+    "shiki": {
+      "optional": true
     }
   },
   "dependencies": {
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
     "unified": "^11.0.5",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "vfile": "^6.0.3"
+  },
+  "devDependencies": {
+    "@sveltek/markdown": "workspace:*",
+    "shiki": "^3.2.1"
   }
 }
