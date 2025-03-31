@@ -282,6 +282,41 @@ Content...
 
 ### Shiki Syntax Highlighter
 
+#### rehypeShiki plugin
+
+Recommended way is to simply import the official `rehypeShiki` plugin from `@sveltek/unplugins`.
+
+It's super flexible and easy, you can apply it to just one page, to specific layouts, or to all pages if needed.
+
+Plugin works without additional configuration, but if you want you can configure it further via plugin options.
+
+> Install the required dependencies before use.
+>
+> ```sh
+> pnpm add -D @sveltek/unplugins shiki
+> ```
+
+```ts
+import { svelteMarkdown } from '@sveltek/markdown'
+import { rehypeShiki } from '@sveltek/unplugins'
+
+svelteMarkdown({
+  plugins: {
+    rehype: [[rehypeShiki, { theme: 'github-light-default' }]],
+  },
+})
+```
+
+#### highlight option
+
+It is also possible to use the `highlight` option which is a powerful way if you need more advanced configuration, but this require manual setup. Keep in mind that this applies to all pages, so it may not be desirable in every case.
+
+> Install the required dependencies before use.
+>
+> ```sh
+> pnpm add -D shiki
+> ```
+
 ```ts
 import { createHighlighter } from 'shiki'
 
@@ -303,6 +338,12 @@ svelteMarkdown({
 ## Plugins
 
 ### Remark Table of Contents (Toc)
+
+> Install the required dependencies before use.
+>
+> ```sh
+> pnpm add -D @sveltek/unplugins
+> ```
 
 ```js
 import { remarkToc } from '@sveltek/unplugins'
