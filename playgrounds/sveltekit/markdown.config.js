@@ -1,12 +1,5 @@
-import { createHighlighter } from 'shiki'
 import { defineConfig } from '../../packages/markdown/dist/index.mjs'
-import { remarkToc } from '../../packages/unplugins/dist/index.mjs'
-
-const theme = 'github-dark-default'
-const highlighter = await createHighlighter({
-  themes: [theme],
-  langs: ['javascript', 'typescript', 'svelte'],
-})
+import { remarkToc, rehypeShiki } from '../../packages/unplugins/dist/index.mjs'
 
 export const markdownConfig = defineConfig({
   frontmatter: {
@@ -24,15 +17,15 @@ export const markdownConfig = defineConfig({
     },
   },
   entries: {
+    about: {
+      plugins: {
+        rehype: [rehypeShiki],
+      },
+    },
     blog: {
       plugins: {
         remark: [remarkToc],
       },
-    },
-  },
-  highlight: {
-    highlighter: async ({ lang, code }) => {
-      return highlighter.codeToHtml(code, { lang, theme })
     },
   },
 })
