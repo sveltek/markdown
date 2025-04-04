@@ -31,7 +31,7 @@
   "devDependencies": {
     "@hypernym/bundler": "^0.14.3",
     "@hypernym/utils": "^3.4.3",
-    "@sveltejs/kit": "^2.20.3",
+    "@sveltejs/kit": "^2.20.4",
     "@sveltek/eslint-config": "^1.0.0",
     "@sveltek/prettier-config": "^1.0.2",
     "@sveltek/tsconfig": "^1.0.0",
