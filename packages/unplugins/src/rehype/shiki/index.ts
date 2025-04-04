@@ -1,5 +1,5 @@
-import { rehypeHighlight, type HighlightOptions } from '@sveltek/markdown'
-import { createHighlighter, type BuiltinTheme } from 'shiki'
+import type { HighlightOptions } from '@sveltek/markdown'
+import type { BuiltinTheme } from 'shiki'
 import type { Root } from 'hast'
 import type { Plugin } from '@/types'
 import type { ShikiOptions } from './types'
@@ -38,14 +38,16 @@ export const rehypeShiki: Plugin<[ShikiOptions?], Root> = function (
   const defaultTheme = theme || 'github-dark-default'
   const defaultLangs = langs || ['javascript', 'typescript', 'svelte']
 
-  const shikiHighlighter = createHighlighter({
-    ...highlighter,
-    themes: highlighter?.themes ||
-      (themes && (Object.values(themes) as BuiltinTheme[])) || [defaultTheme],
-    langs: highlighter?.langs || defaultLangs,
-  })
-
   return async (tree, file) => {
+    const { rehypeHighlight } = await import('@sveltek/markdown')
+    const { createHighlighter } = await import('shiki')
+
+    const shikiHighlighter = createHighlighter({
+      ...highlighter,
+      themes: highlighter?.themes ||
+        (themes && (Object.values(themes) as BuiltinTheme[])) || [defaultTheme],
+      langs: highlighter?.langs || defaultLangs,
+    })
     const { codeToHtml } = await shikiHighlighter
 
     const highlightOptions: HighlightOptions = {
