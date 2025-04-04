@@ -23,7 +23,7 @@
     "create:release": "sh -c 'gh workflow run release --ref main --field package_name=$1' --",
     "update:all": "taze -r --interactive"
   },
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.7.1",
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=10.0.0"
@@ -31,14 +31,14 @@
   "devDependencies": {
     "@hypernym/bundler": "^0.14.3",
     "@hypernym/utils": "^3.4.3",
-    "@sveltejs/kit": "^2.20.2",
+    "@sveltejs/kit": "^2.20.3",
     "@sveltek/eslint-config": "^1.0.0",
     "@sveltek/prettier-config": "^1.0.2",
     "@sveltek/tsconfig": "^1.0.0",
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.14.0",
     "eslint": "^9.23.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.25.3",
+    "svelte": "^5.25.6",
     "typescript": "^5.8.2"
   }
 }
