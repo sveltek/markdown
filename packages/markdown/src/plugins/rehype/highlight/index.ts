@@ -24,7 +24,7 @@ export const rehypeHighlight: Plugin<[HighlightOptions], Root> = (
   options: HighlightOptions,
 ) => {
   return async (tree) => {
-    const { highlighter } = options
+    const { highlighter, root } = options
 
     if (!highlighter) return
 
@@ -34,6 +34,7 @@ export const rehypeHighlight: Plugin<[HighlightOptions], Root> = (
       if (node.tagName !== 'pre' || !node.children?.length) return
       const [code] = node.children
       if (code.type === 'element' && code.tagName === 'code') els.push(code)
+      root?.(node)
     })
 
     const highlight = async (el: Element) => {

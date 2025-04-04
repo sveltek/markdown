@@ -1,3 +1,5 @@
+import type { Element } from 'hast'
+
 export interface HighlighterData {
   lang: string | undefined
   meta: string | undefined
@@ -15,4 +17,10 @@ export interface HighlightOptions {
    * @default undefined
    */
   highlighter?: Highlighter
+  /**
+   * Specifies custom options for the `root` node (usually the `<pre>` tag).
+   *
+   * @default undefined
+   */
+  root?: (node: Element) => void
 }
