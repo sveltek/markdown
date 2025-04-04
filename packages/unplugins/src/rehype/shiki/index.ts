@@ -33,16 +33,25 @@ import type { ShikiOptions } from './types'
 export const rehypeShiki: Plugin<[ShikiOptions?], Root> = function (
   options: ShikiOptions = {},
 ) {
-  const { theme, themes, langs, highlighter, codeToHtml: codeHtml } = options
+  const {
+    theme,
+    themes,
+    langs,
+    highlighter,
+    codeToHtml: codeHtml,
+    root = (node) => {
+      node.tagName = 'div'
+    },
+  } = options
 
   const defaultTheme = theme || 'github-dark-default'
   const defaultLangs = langs || ['javascript', 'typescript', 'svelte']
 
   return async (tree, file) => {
     const { rehypeHighlight } = await import('@sveltek/markdown')
-    const { createHighlighter } = await import('shiki')
+    const { getSingletonHighlighter } = await import('shiki')
 
-    const shikiHighlighter = createHighlighter({
+    const shikiHighlighter = getSingletonHighlighter({
       ...highlighter,
       themes: highlighter?.themes ||
         (themes && (Object.values(themes) as BuiltinTheme[])) || [defaultTheme],
@@ -64,6 +73,7 @@ export const rehypeShiki: Plugin<[ShikiOptions?], Root> = function (
           })
         }
       },
+      root,
     }
 
     const transformer = rehypeHighlight.call(this, highlightOptions)

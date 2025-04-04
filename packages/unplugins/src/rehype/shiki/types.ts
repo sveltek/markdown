@@ -4,6 +4,7 @@ import {
   type CodeOptionsSingleTheme,
   type CodeOptionsMultipleThemes,
 } from 'shiki'
+import type { HighlightOptions } from '@sveltek/markdown'
 
 type HighlighterOptions = Parameters<typeof createHighlighter>[0]
 
@@ -75,4 +76,22 @@ export interface ShikiOptions {
    * @default undefined
    */
   parseMeta?: (meta: string | undefined) => void
+  /**
+   * Specifies custom options for the `root` node (usually the `<pre>` tag).
+   *
+   * @example
+   *
+   * ```ts
+   * {
+   *   root: (node) => {
+   *     node.tagName = 'div'
+   *     node.properties.id = 'code-highlight'
+   *     // ...
+   *   }
+   * }
+   * ```
+   *
+   * @default undefined
+   */
+  root?: HighlightOptions['root']
 }
