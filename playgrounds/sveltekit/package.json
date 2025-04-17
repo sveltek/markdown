@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.8",
-    "shiki": "^3.2.1",
-    "svelte-check": "^4.1.5",
-    "vite": "^6.2.5"
+    "shiki": "^3.2.2",
+    "svelte-check": "^4.1.6",
+    "vite": "^6.3.1"
   }
 }

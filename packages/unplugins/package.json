@@ -67,6 +67,6 @@
   },
   "devDependencies": {
     "@sveltek/markdown": "workspace:*",
-    "shiki": "^3.2.1"
+    "shiki": "^3.2.2"
   }
 }
