@@ -33,9 +33,6 @@
   ],
   "scripts": {
     "build": "hyperbundler",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --write .",
     "publish:unplugins": "npm run build && npm publish"
   },
   "peerDependencies": {
@@ -67,6 +64,6 @@
   },
   "devDependencies": {
     "@sveltek/markdown": "workspace:*",
-    "shiki": "^3.2.2"
+    "shiki": "^3.4.0"
   }
 }
