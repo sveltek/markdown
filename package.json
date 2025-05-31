@@ -24,16 +24,16 @@
     "update:all": "taze -r --interactive"
   },
   "devDependencies": {
-    "@hypernym/bundler": "^0.14.3",
-    "@hypernym/utils": "^3.4.3",
-    "@sveltejs/kit": "^2.20.8",
+    "@hypernym/bundler": "^0.14.4",
+    "@hypernym/utils": "^3.4.4",
+    "@sveltejs/kit": "^2.21.1",
     "@sveltek/eslint-config": "^1.1.0",
     "@sveltek/prettier-config": "^1.0.3",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^22.15.13",
-    "eslint": "^9.26.0",
+    "@types/node": "^22.15.29",
+    "eslint": "^9.28.0",
     "prettier": "^3.5.3",
-    "svelte": "^5.28.2",
+    "svelte": "^5.33.10",
     "typescript": "^5.8.3"
   }
 }
