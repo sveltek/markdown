@@ -21,19 +21,19 @@
     "format:play": "prettier --write playgrounds/sveltekit",
     "format:root": "prettier --write . '!playgrounds' '!packages'",
     "create:release": "sh -c 'gh workflow run release --ref main --field package_name=$1' --",
-    "update:all": "taze -r --interactive"
+    "update:all": "taze -r -f --interactive"
   },
   "devDependencies": {
     "@hypernym/bundler": "^0.14.4",
     "@hypernym/utils": "^3.4.4",
-    "@sveltejs/kit": "^2.21.1",
-    "@sveltek/eslint-config": "^1.1.0",
-    "@sveltek/prettier-config": "^1.0.3",
+    "@sveltejs/kit": "^2.22.2",
+    "@sveltek/eslint-config": "^1.1.1",
+    "@sveltek/prettier-config": "^1.0.4",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^22.15.29",
-    "eslint": "^9.28.0",
-    "prettier": "^3.5.3",
-    "svelte": "^5.33.10",
+    "@types/node": "^24.0.10",
+    "eslint": "^9.30.1",
+    "prettier": "^3.6.2",
+    "svelte": "^5.35.2",
     "typescript": "^5.8.3"
   }
 }
