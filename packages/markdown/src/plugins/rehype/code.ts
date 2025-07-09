@@ -4,7 +4,13 @@ import { escapeSvelte } from '@/utils'
 import type { Root } from 'hast'
 import type { Plugin } from '@/plugins/types'
 
-export const rehypeRenderCode: Plugin<[], Root> = () => {
+interface Options {
+  htmlTag?: boolean
+}
+
+export const rehypeRenderCode: Plugin<[Options?], Root> = ({
+  htmlTag,
+}: Options = {}) => {
   return (tree) => {
     visit(tree, 'element', (node) => {
       if (!['pre', 'code'].includes(node.tagName)) return
@@ -17,9 +23,11 @@ export const rehypeRenderCode: Plugin<[], Root> = () => {
         characterReferences: { useNamedReferences: true },
       })
 
+      const parsed = escapeSvelte(value)
+
       Object.assign(code, {
         type: 'raw',
-        value: `{@html \`${escapeSvelte(value)}\`}`,
+        value: htmlTag ? `{@html \`${parsed}\`}` : parsed,
       })
     })
   }
