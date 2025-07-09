@@ -33,7 +33,8 @@
   ],
   "scripts": {
     "build": "hyperbundler",
-    "publish:unplugins": "npm run build && npm publish"
+    "format:unplugins": "prettier --write .",
+    "publish:unplugins": "pnpm build && pnpm publish"
   },
   "peerDependencies": {
     "@sveltek/markdown": ">=0.10.0",

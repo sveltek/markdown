@@ -42,7 +42,8 @@
   ],
   "scripts": {
     "build": "hyperbundler",
-    "publish:markdown": "npm run build && npm publish"
+    "format:markdown": "prettier --write .",
+    "publish:markdown": "pnpm build && pnpm publish"
   },
   "peerDependencies": {
     "@types/node": ">=20.0.0",

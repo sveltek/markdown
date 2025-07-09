@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "sync": "svelte-kit sync"
+    "sync": "svelte-kit sync",
+    "format:play": "prettier --write ."
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.8",
