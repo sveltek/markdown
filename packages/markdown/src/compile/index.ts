@@ -24,7 +24,12 @@ import type { FileData, CompileOptions } from './types'
 
 export async function compile(
   source: string,
-  { filename, config = {} }: CompileOptions,
+  {
+    filename,
+    config = {},
+    htmlTag = true,
+    module: optionsModule = true,
+  }: CompileOptions,
 ): Promise<Processed> {
   const {
     preprocessors = [],
@@ -87,7 +92,7 @@ export async function compile(
     .use(usePlugins(data.plugins?.rehype))
     .use(usePlugins(layout?.plugins?.rehype))
     .use(usePlugins(entry?.plugins?.rehype))
-    .use(rehypeRenderCode)
+    .use(rehypeRenderCode, { htmlTag })
     .use(rehypeCreateLayout)
     .use(rehypeCreateComponents)
     .use(rehypeStringify, { allowDangerousHtml: true })
@@ -129,7 +134,7 @@ export async function compile(
     s.prepend(svelteInstance.content)
   }
 
-  s.prepend(svelteModule.content)
+  if (optionsModule) s.prepend(svelteModule.content)
 
   return {
     code: s.toString(),
