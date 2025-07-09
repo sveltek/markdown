@@ -1,5 +1,9 @@
 import { defineConfig } from '../../packages/markdown/dist/index.mjs'
-import { remarkToc, rehypeShiki } from '../../packages/unplugins/dist/index.mjs'
+import {
+  remarkToc,
+  remarkReadingStats,
+  rehypeShiki,
+} from '../../packages/unplugins/dist/index.mjs'
 
 export const markdownConfig = defineConfig({
   frontmatter: {
@@ -25,6 +29,11 @@ export const markdownConfig = defineConfig({
     blog: {
       plugins: {
         remark: [remarkToc],
+      },
+    },
+    support: {
+      plugins: {
+        remark: [remarkReadingStats],
       },
     },
   },
