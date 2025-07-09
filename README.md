@@ -376,35 +376,15 @@ description: Read the latest news.
 
 ### Remark Reading Stats
 
-```ts
-import { visit, CONTINUE } from 'unist-util-visit'
-import readingTime from 'reading-time'
-import type { Frontmatter } from '@sveltek/markdown'
-import type { Plugin, Mdast } from '@sveltek/unplugins'
-
-/**
- * Estimates how long an article will take to read.
- */
-export const remarkReadingStats: Plugin<[], Mdast.Root> = () => {
-  return (tree, file) => {
-    const frontmatter = file.data.frontmatter as Frontmatter
-
-    let text = ''
-
-    visit(tree, ['text', 'code'], (node) => {
-      if (node.type !== 'text' && node.type !== 'code') return CONTINUE
-
-      text += node.value
-
-      frontmatter.readingStats = readingTime(text)
-    })
-  }
-}
-```
-
-Config:
+> Install the required dependencies before use.
+>
+> ```sh
+> pnpm add -D @sveltek/unplugins
+> ```
 
 ```js
+import { remarkReadingStats } from '@sveltek/unplugins'
+
 svelteMarkdown({
   plugins: {
     remark: [remarkReadingStats],
@@ -419,13 +399,11 @@ Usage in markdown page:
 title: Page title
 ---
 
-Reading stats: {JSON.stringify(readingStats)}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-# returns an object: { text: '1 min read', minutes: 1, time: 60000, words: 200 }
+Reading Stats {JSON.stringify(readingStats)}
 
-Reading time: {readingStats.text}
-
-# returns an string: '1 min read'
+Reading Time: {readingStats.text}
 ```
 
 ## API
