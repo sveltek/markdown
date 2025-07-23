@@ -1,5 +1,6 @@
 import { resolve, relative } from 'node:path'
 import { print } from 'esrap'
+import ts from 'esrap/languages/ts'
 import { meta } from '@/shared'
 import type { AST } from 'svelte/compiler'
 import type { ASTScript } from './types'
@@ -30,7 +31,7 @@ export function createSvelteInstance(
     return { start: 0, end: 0, content }
   }
 
-  const content = `<script>\n${imports}${print(instance.content).code}\n</script>\n`
+  const content = `<script>\n${imports}${print(instance.content as any, ts()).code}\n</script>\n`
 
   return { start: instance.start, end: instance.end, content }
 }
