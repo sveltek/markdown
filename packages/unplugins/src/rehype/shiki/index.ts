@@ -1,3 +1,4 @@
+import { isFunction } from './utils'
 import type { HighlightOptions } from '@sveltek/markdown'
 import type { BuiltinTheme } from 'shiki'
 import type { Root } from 'hast'
@@ -38,7 +39,7 @@ export const rehypeShiki: Plugin<[ShikiOptions?], Root> = function (
     themes,
     langs,
     highlighter,
-    codeToHtml: codeHtml,
+    codeToHtml: codeHtmlOptions,
     root = (node) => {
       node.tagName = 'div'
     },
@@ -61,7 +62,12 @@ export const rehypeShiki: Plugin<[ShikiOptions?], Root> = function (
 
     const highlightOptions: HighlightOptions = {
       highlighter: async ({ code, lang, meta }) => {
-        options.parseMeta?.(meta)
+        const parsedMeta = options.parseMeta?.(meta)
+        if (parsedMeta) meta = parsedMeta
+
+        const codeHtml = isFunction(codeHtmlOptions)
+          ? codeHtmlOptions({ code, lang, meta })
+          : codeHtmlOptions
 
         if (code) {
           return codeToHtml(code, {

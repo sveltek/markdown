@@ -28,7 +28,7 @@ specialElements: true
 
 <Button />
 
-```ts
+```ts line-numbers
 // Code example
 console.log('@sveltek/markdown')
 ```
