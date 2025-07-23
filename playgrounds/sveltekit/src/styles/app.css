@@ -11,3 +11,19 @@ a:visited {
   color: white;
   text-decoration: none;
 }
+
+pre[data-line-numbers='true'] {
+  counter-reset: step;
+  counter-increment: step 0;
+
+  .line::before {
+    content: counter(step);
+    counter-increment: step;
+    opacity: 0.5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 1rem;
+    margin-right: 0.5rem;
+  }
+}

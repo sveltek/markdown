@@ -5,6 +5,26 @@ import {
   rehypeShiki,
 } from '../../packages/unplugins/dist/index.mjs'
 
+/** @type {import('../../packages/unplugins/dist/index.mjs').ShikiOptions} */
+export const shikiConfig = {
+  langs: ['html', 'javascript', 'typescript', 'svelte', 'shellscript'],
+  codeToHtml: ({ lang, meta }) => ({
+    tabindex: false,
+    transformers: [
+      {
+        name: 'transformer-metadata',
+        pre(node) {
+          node.properties['data-theme'] = 'hypernym-dark'
+          node.properties['data-lang'] = `${lang}`
+
+          const isNumbers = meta?.includes('line-numbers') || false
+          node.properties['data-line-numbers'] = `${isNumbers}`
+        },
+      },
+    ],
+  }),
+}
+
 export const markdownConfig = defineConfig({
   frontmatter: {
     defaults: {
@@ -23,7 +43,7 @@ export const markdownConfig = defineConfig({
   entries: {
     about: {
       plugins: {
-        rehype: [rehypeShiki],
+        rehype: [[rehypeShiki, shikiConfig]],
       },
     },
     blog: {
