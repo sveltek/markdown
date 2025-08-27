@@ -25,15 +25,15 @@
   },
   "devDependencies": {
     "@hypernym/bundler": "^0.14.4",
-    "@hypernym/utils": "^3.4.4",
-    "@sveltejs/kit": "^2.25.2",
-    "@sveltek/eslint-config": "^1.1.1",
+    "@hypernym/utils": "^3.4.5",
+    "@sveltejs/kit": "^2.36.3",
+    "@sveltek/eslint-config": "^1.1.2",
     "@sveltek/prettier-config": "^1.0.4",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^24.1.0",
-    "eslint": "^9.31.0",
+    "@types/node": "^24.3.0",
+    "eslint": "^9.34.0",
     "prettier": "^3.6.2",
-    "svelte": "^5.36.14",
-    "typescript": "^5.8.3"
+    "svelte": "^5.38.5",
+    "typescript": "^5.9.2"
   }
 }
