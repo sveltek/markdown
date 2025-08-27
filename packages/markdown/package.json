@@ -63,7 +63,7 @@
     "@types/mdast": "^4.0.4",
     "esrap": "^2.1.0",
     "hast-util-to-html": "^9.0.5",
-    "magic-string": "^0.30.17",
+    "magic-string": "^0.30.18",
     "mdast-util-to-markdown": "^2.1.2",
     "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
@@ -71,6 +71,6 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3",
-    "yaml": "^2.8.0"
+    "yaml": "^2.8.1"
   }
 }
