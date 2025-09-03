@@ -1,6 +1,6 @@
 {
   "name": "@sveltek/unplugins",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "author": "Sveltek",
   "description": "Sveltek's Unified plugins for Markdown preprocessor.",
   "license": "MIT",
