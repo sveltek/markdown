@@ -4,12 +4,6 @@
 
 <br>
 
-## Community
-
-Feel free to ask questions or share new ideas.
-
-Use the official [discussions](https://github.com/sveltek/markdown/discussions) to get involved.
-
 ## Contribute
 
 Check out the quick [guide](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) for more info.
