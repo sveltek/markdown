@@ -68,12 +68,14 @@ export interface ShikiOptions {
    * @default undefined
    */
   codeToHtml?:
-    | (CodeToHastOptions & CodeOptionsSingleTheme & CodeOptionsMultipleThemes)
+    | Partial<
+        CodeToHastOptions & CodeOptionsSingleTheme & CodeOptionsMultipleThemes
+      >
     | ((
         data: HighlighterData,
-      ) => CodeToHastOptions &
-        CodeOptionsSingleTheme &
-        CodeOptionsMultipleThemes)
+      ) => Partial<
+        CodeToHastOptions & CodeOptionsSingleTheme & CodeOptionsMultipleThemes
+      >)
   /**
    * Parses `meta` string from the code block.
    *
