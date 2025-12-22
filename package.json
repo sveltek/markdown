@@ -24,16 +24,16 @@
     "bump": "taze -f -r --interactive"
   },
   "devDependencies": {
-    "@hypernym/bundler": "^0.14.4",
-    "@hypernym/utils": "^3.4.5",
-    "@sveltejs/kit": "^2.37.0",
-    "@sveltek/eslint-config": "^1.1.2",
-    "@sveltek/prettier-config": "^1.0.4",
+    "@hypernym/bundler": "^0.31.0",
+    "@hypernym/utils": "^3.4.6",
+    "@sveltejs/kit": "^2.49.2",
+    "@sveltek/eslint-config": "^1.1.3",
+    "@sveltek/prettier-config": "^1.0.5",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^24.3.0",
-    "eslint": "^9.34.0",
-    "prettier": "^3.6.2",
-    "svelte": "^5.38.6",
-    "typescript": "^5.9.2"
+    "@types/node": "^24.10.4",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "svelte": "^5.46.0",
+    "typescript": "^5.9.3"
   }
 }

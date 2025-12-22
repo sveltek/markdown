@@ -12,9 +12,9 @@
     "format:play": "prettier --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.9",
-    "shiki": "^3.12.2",
-    "svelte-check": "^4.3.1",
-    "vite": "^7.1.4"
+    "@sveltejs/adapter-static": "^3.0.10",
+    "shiki": "^3.20.0",
+    "svelte-check": "^4.3.5",
+    "vite": "^7.3.0"
   }
 }
