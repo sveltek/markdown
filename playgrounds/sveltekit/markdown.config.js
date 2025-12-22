@@ -1,11 +1,11 @@
-import { defineConfig } from '../../packages/markdown/dist/index.mjs'
+import { defineConfig } from '../../packages/markdown/dist/index.js'
 import {
   remarkToc,
   remarkReadingStats,
   rehypeShiki,
-} from '../../packages/unplugins/dist/index.mjs'
+} from '../../packages/unplugins/dist/index.js'
 
-/** @type {import('../../packages/unplugins/dist/index.mjs').ShikiOptions} */
+/** @type {import('../../packages/unplugins/dist/index.js').ShikiOptions} */
 export const shikiConfig = {
   langs: ['html', 'javascript', 'typescript', 'svelte', 'shellscript'],
   codeToHtml: ({ lang, meta }) => ({

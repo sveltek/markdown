@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-static'
-import { svelteMarkdown } from '../../packages/markdown/dist/index.mjs'
+import { svelteMarkdown } from '../../packages/markdown/dist/index.js'
 import { markdownConfig } from './markdown.config.js'
 
 /** @type {import('@sveltejs/kit').Config} */
