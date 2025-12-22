@@ -1,23 +1,18 @@
-import { defineConfig, externals, resolvePaths } from '@hypernym/bundler'
+import { defineConfig, externals } from '@hypernym/bundler'
 import { dependencies } from './package.json'
 
 export default defineConfig({
   entries: [
     // Shared
     {
-      input: './src/shared/index.ts',
-      output: './dist/shared/index.mjs',
       externals: [],
-      transformers: { resolve: true },
+      input: './src/shared/index.ts',
     },
     // Utils
-    {
-      input: './src/utils/index.ts',
-      output: './dist/utils/index.mjs',
-    },
+    { input: './src/utils/index.ts' },
     {
       dts: './src/utils/types.ts',
-      output: './dist/utils/index.d.mts',
+      output: './dist/utils/index.d.ts',
     },
     // Main
     {
@@ -30,14 +25,14 @@ export default defineConfig({
         '@/shared',
         '@/utils',
       ],
-      paths: resolvePaths([
-        { find: '@/shared', replacement: './shared/index.mjs' },
-        { find: '@/utils', replacement: './utils/index.mjs' },
-      ]),
+      paths: [
+        { find: '@/shared', replacement: './shared/index.js' },
+        { find: '@/utils', replacement: './utils/index.js' },
+      ],
     },
     {
       dts: './src/types/index.ts',
-      output: './dist/index.d.mts',
+      output: './dist/index.d.ts',
     },
   ],
 })
