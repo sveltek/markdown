@@ -14,7 +14,7 @@ export default defineConfig({
     },
     {
       dts: './src/types.ts',
-      output: './dist/index.d.mts',
+      output: './dist/index.d.ts',
       externals: [
         ...externals,
         ...Object.keys(dependencies),
