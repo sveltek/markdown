@@ -5,8 +5,9 @@ import {
   rehypeShiki,
 } from '../../packages/unplugins/dist/index.js'
 
-/** @type {import('../../packages/unplugins/dist/index.js').ShikiOptions} */
-export const shikiConfig = {
+import type { ShikiOptions } from '../../packages/unplugins/dist/index.js'
+
+export const shikiConfig: ShikiOptions = {
   langs: ['html', 'javascript', 'typescript', 'svelte', 'shellscript'],
   codeToHtml: ({ lang, meta }) => ({
     tabindex: false,
@@ -57,4 +58,7 @@ export const markdownConfig = defineConfig({
       },
     },
   },
+  imports: [
+    { path: `import GlobalButton from '$/components/button/Button.svelte'` },
+  ],
 })
