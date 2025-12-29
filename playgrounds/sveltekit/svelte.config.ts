@@ -1,9 +1,9 @@
 import adapter from '@sveltejs/adapter-static'
 import { svelteMarkdown } from '../../packages/markdown/dist/index.js'
-import { markdownConfig } from './markdown.config.js'
+import { markdownConfig } from './markdown.config.ts'
+import type { Config } from '@sveltejs/kit'
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
+const config: Config = {
   kit: {
     adapter: adapter({
       fallback: '404.html',
