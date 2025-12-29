@@ -1,3 +1,5 @@
+export * from 'unist-util-visit'
+
 export type * as Unified from 'unified'
 export type { Plugin } from 'unified'
 export type * as VFile from 'vfile'
