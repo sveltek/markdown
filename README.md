@@ -249,6 +249,35 @@ entry: false
 Content...
 ```
 
+### Global Imports
+
+```ts
+// markdown.config.js
+
+import { defineConfig } from '@sveltek/markdown'
+
+export const markdownConfig = defineConfig({
+  imports: [
+    { path: `import Link from '$lib/components/ui/Link.svelte'` },
+    { path: `import Button from '$/components/button/Button.svelte'` },
+    // ...
+  ],
+})
+```
+
+```markdown
+---
+title: About page
+description: Svelte Markdown Preprocessor.
+---
+
+<Link />
+
+<Button />
+
+Content...
+```
+
 ### Special Elements
 
 ```markdown
@@ -670,6 +699,25 @@ svelteMarkdown({
       entry: 'default',
     },
   },
+})
+```
+
+### imports
+
+- Type: `object[]`
+- Default: `undefined`
+
+Defines global imports that can be used in all markdown files without manual setup.
+
+Especially useful for some generic components like buttons, links, images, etc.
+
+```ts
+svelteMarkdown({
+  imports: [
+    { path: `import Link from '$lib/components/ui/Link.svelte'` },
+    { path: `import Button from '$/components/button/Button.svelte'` },
+    // ...
+  ],
 })
 ```
 

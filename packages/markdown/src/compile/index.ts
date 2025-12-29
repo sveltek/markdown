@@ -35,6 +35,7 @@ export async function compile(
     preprocessors = [],
     plugins: { remark = [], rehype = [] } = {},
     highlight = {},
+    imports,
   } = config
 
   const file = new VFile({
@@ -111,16 +112,16 @@ export async function compile(
 
   const svelteModule = createSvelteModule(module, data)
 
+  const svelteInstance = createSvelteInstance(instance, {
+    filePath: file.path,
+    layoutPath: layout?.path,
+    imports,
+  })
+  if (instance) s.remove(instance.start, instance.end)
+
   if (layout) {
     let styles: string | undefined
 
-    const svelteInstance = createSvelteInstance(
-      instance,
-      file.path,
-      layout.path,
-    )
-
-    if (instance) s.remove(instance.start, instance.end)
     if (module) s.remove(module.start, module.end)
     if (css) {
       styles = s.original.substring(css.start, css.end)
@@ -131,9 +132,9 @@ export async function compile(
     s.append(`</${meta.layoutName}>\n`)
 
     if (styles) s.prepend(styles)
-    s.prepend(svelteInstance.content)
   }
 
+  if (svelteInstance) s.prepend(svelteInstance.content)
   if (optionsModule) s.prepend(svelteModule.content)
 
   return {
