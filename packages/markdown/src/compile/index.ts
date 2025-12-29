@@ -134,7 +134,7 @@ export async function compile(
     if (styles) s.prepend(styles)
   }
 
-  if (svelteInstance) s.prepend(svelteInstance.content)
+  if (svelteInstance.content) s.prepend(svelteInstance.content)
   if (optionsModule) s.prepend(svelteModule.content)
 
   return {

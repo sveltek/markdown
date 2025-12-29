@@ -35,10 +35,8 @@ export function createSvelteInstance(
     layoutPath?: string
     imports?: MarkdownConfig['imports']
   },
-): ASTScript | void {
+): ASTScript {
   const isLayout = filePath && layoutPath
-
-  if (!isLayout && !imports) return
 
   let code = ''
   const globals = getImports(imports)
@@ -51,7 +49,7 @@ export function createSvelteInstance(
   }
 
   if (!instance) {
-    const content = `<script>\n${code}</script>\n`
+    const content = code ? `<script>\n${code}</script>\n` : ''
     return { start: 0, end: 0, content }
   }
 
