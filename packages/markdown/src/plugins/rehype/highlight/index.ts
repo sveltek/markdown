@@ -3,7 +3,7 @@ import { escapeSvelte } from '@/utils'
 import { getHighlighterData } from './utils'
 import type { Root, Element } from 'hast'
 import type { Plugin } from '@/plugins/types'
-import type { HighlightOptions } from './types'
+import type { HighlightOptions, HighlighterData } from './types'
 
 /**
  * A custom `Rehype` plugin that creates code highlighter.
@@ -28,20 +28,28 @@ export const rehypeHighlight: Plugin<[HighlightOptions], Root> = (
 
     if (!highlighter) return
 
-    const els: Element[] = []
+    const els: { el: Element; data: HighlighterData }[] = []
 
     visit(tree, 'element', (node) => {
       if (node.tagName !== 'pre' || !node.children?.length) return
       const [code] = node.children
-      if (code.type === 'element' && code.tagName === 'code') els.push(code)
+      let data: HighlighterData | undefined
+      if (code.type === 'element' && code.tagName === 'code') {
+        data = getHighlighterData(code)
+        els.push({ el: code, data })
+      }
+      const d = (node.data || (node.data = {})) as Element['data'] & {
+        highlight?: { data?: HighlighterData }
+      }
+      d.highlight = { data }
       root?.(node)
     })
 
-    const highlight = async (el: Element) => {
-      const code = await highlighter?.(getHighlighterData(el))
+    const highlight = async (el: Element, data: HighlighterData) => {
+      const code = await highlighter(data)
       if (code) Object.assign(el, { type: 'raw', value: escapeSvelte(code) })
     }
 
-    await Promise.all(els.map((el) => highlight(el)))
+    await Promise.all(els.map(({ el, data }) => highlight(el, data)))
   }
 }
