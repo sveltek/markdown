@@ -14,3 +14,5 @@ description: Get started with Svelte Markdown.
 ## Heading Level 2
 
 ### Heading Level 3
+
+<GlobalButton />

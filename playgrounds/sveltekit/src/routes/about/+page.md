@@ -28,6 +28,8 @@ specialElements: true
 
 <Button />
 
+<GlobalButton />
+
 ```ts line-numbers
 // Code example
 console.log('@sveltek/markdown')
