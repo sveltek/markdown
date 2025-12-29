@@ -19,7 +19,10 @@ const getRelativePath = (from: string, to: string): string => {
 }
 
 export const getImports = (imports: MarkdownConfig['imports']): string =>
-  imports?.map((value) => `${value.path};\n`).join('\n\n') || ''
+  imports
+    ?.map((value) => `${value.path};`)
+    .join('\n')
+    .concat('\n') || ''
 
 export function createSvelteInstance(
   instance: AST.Root['instance'],
