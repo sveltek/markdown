@@ -1,6 +1,6 @@
 {
   "name": "@sveltek/markdown",
-  "version": "0.13.2",
+  "version": "0.20.0",
   "author": "Sveltek",
   "description": "Svelte Markdown Preprocessor.",
   "license": "MIT",
