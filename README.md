@@ -249,7 +249,7 @@ entry: false
 Content...
 ```
 
-### Global Imports
+### Global Components
 
 ```ts
 // markdown.config.js
@@ -257,9 +257,15 @@ Content...
 import { defineConfig } from '@sveltek/markdown'
 
 export const markdownConfig = defineConfig({
-  imports: [
-    { path: `import Link from '$lib/components/ui/Link.svelte'` },
-    { path: `import Button from '$/components/button/Button.svelte'` },
+  components: [
+    {
+      name: 'Link',
+      path: 'src/lib/components/ui/Link.svelte',
+    },
+    {
+      name: 'Button',
+      path: 'src/components/button/Button.svelte',
+    },
     // ...
   ],
 })
@@ -702,23 +708,78 @@ svelteMarkdown({
 })
 ```
 
-### imports
+### components
 
 - Type: `object[]`
 - Default: `undefined`
 
-Defines global imports that can be used in all markdown files without manual setup.
+Defines global components that can be used in all markdown files without manual setup.
 
 Especially useful for some generic components like buttons, links, images, etc.
 
+#### Default import
+
 ```ts
 svelteMarkdown({
-  imports: [
-    { path: `import Link from '$lib/components/ui/Link.svelte'` },
-    { path: `import Button from '$/components/button/Button.svelte'` },
+  components: [
+    {
+      name: 'GlobalButton', // Specifies the component name
+      path: 'src/components/button/Button.svelte', // Specifies the component path
+    },
     // ...
   ],
 })
+```
+
+```markdown
+---
+title: Home page
+description: Svelte Markdown Preprocessor.
+---
+
+<GlobalButton></GlobalButton>
+
+Content...
+```
+
+#### Named import
+
+```ts
+svelteMarkdown({
+  components: [
+    {
+      name: 'Link', // Specifies named import
+      path: 'src/components/link/index.ts', // Specifies import path from the barrel file
+      form: 'named', // Specifies the component import form
+    },
+    {
+      name: 'Link as MainLink', // Specifies named alias
+      path: 'src/components/link/index.ts',
+      form: 'named',
+    },
+    {
+      name: 'Tabs',
+      path: 'npm-package', // Specifies import path from the external package
+      form: 'named',
+    },
+    // ...
+  ],
+})
+```
+
+```markdown
+---
+title: Docs page
+description: Get started with Svelte Markdown.
+---
+
+<Link></Link>
+
+<MainLink></MainLink>
+
+<Tabs></Tabs>
+
+Content...
 ```
 
 ### frontmatter
