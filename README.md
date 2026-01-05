@@ -25,6 +25,7 @@
 - **Unique Entries:** Defines specialized, `entry-level` configuration adapted for all markdown files.
 - **Unified Plugins:** Enables content transformation using widely-adopted tools like `remark` and `rehype`.
 - **Global Frontmatter:** Streamlines workflow by offering centralized options for markdown `metadata`.
+- **Global Components:** Defines `global components` that can be used in all markdown files without manual setup.
 - **Special Elements:** Supports parsing Svelte special elements such as `svelte:head` etc. in markdown files.
 - **Code Highlighter:** Offers quick and easy customization for `syntax highlighting`.
 
