@@ -1,6 +1,6 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from '@/plugins/types'
-import type { Layouts, Entries, Imports, Highlight } from '@/compile/types'
+import type { Layouts, Entries, Components, Highlight } from '@/compile/types'
 
 export interface MarkdownConfig {
   /**
@@ -92,13 +92,13 @@ export interface MarkdownConfig {
    */
   entries?: Entries
   /**
-   * Defines global imports that can be used in all markdown files without manual setup.
+   * Defines global components that can be used in all markdown files without manual setup.
    *
    * Especially useful for some generic components like buttons, links, images, etc.
    *
    * @default undefined
    */
-  imports?: Imports
+  components?: Components
   /**
    * Defines custom syntax highlighting options.
    *
