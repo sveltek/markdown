@@ -4,7 +4,6 @@ import {
   remarkReadingStats,
   rehypeShiki,
 } from '../../packages/unplugins/dist/index.js'
-
 import type { ShikiOptions } from '../../packages/unplugins/dist/index.js'
 
 export const shikiConfig: ShikiOptions = {
@@ -36,28 +35,32 @@ export const markdownConfig = defineConfig({
       },
     },
   },
-  layouts: {
-    default: {
+  layouts: [
+    {
+      name: 'default',
       path: 'src/content/layouts/default/layout.svelte',
     },
-  },
-  entries: {
-    about: {
+  ],
+  entries: [
+    {
+      name: 'about',
       plugins: {
         rehype: [[rehypeShiki, shikiConfig]],
       },
     },
-    blog: {
+    {
+      name: 'blog',
       plugins: {
         remark: [remarkToc],
       },
     },
-    support: {
+    {
+      name: 'support',
       plugins: {
         remark: [remarkReadingStats],
       },
     },
-  },
+  ],
   components: [
     {
       name: 'GlobalButton',
