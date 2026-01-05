@@ -34,10 +34,12 @@
     "svelte-markdown",
     "svelte-preprocess",
     "svelte-plugin",
+    "svelte-svx",
     "svelte-mdx",
     "svelte-md",
-    "mdx",
     "kit",
+    "svx",
+    "mdx",
     "md"
   ],
   "scripts": {
