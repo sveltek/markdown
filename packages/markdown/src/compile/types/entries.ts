@@ -2,6 +2,10 @@ import type { PluginList } from '@/plugins/types'
 
 export interface Entry {
   /**
+   * Specifies the entry name.
+   */
+  name: string
+  /**
    * Specifies the **entry-specific** plugins that will only be applied to this particular markdown file.
    *
    * Also, these plugins will run after **top-level** and **layout-level** plugins.
@@ -28,4 +32,4 @@ export interface Entry {
   }
 }
 
-export type Entries = Record<string, Entry>
+export type Entries = Entry[]

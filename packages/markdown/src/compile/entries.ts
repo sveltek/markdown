@@ -11,12 +11,11 @@ export function getEntryData(
   if (!config.entries || !entry) return
 
   const entryName = isObject(entry) ? entry.name : entry
+  const entryConfig = config.entries.find(({ name }) => name === entryName)
 
-  const entryConfig = config.entries[entryName]
   if (!entryConfig) {
-    throw new TypeError(
-      `Invalid entry name. Valid names are: ${Object.keys(config.entries).join(', ')}.`,
-    )
+    const names = config.entries.map((entry) => `"${entry.name}"`).join(', ')
+    throw new TypeError(`Invalid entry name. Valid names are: ${names}.`)
   }
 
   return entryConfig

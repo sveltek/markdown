@@ -2,6 +2,10 @@ import type { PluginList } from '@/plugins/types'
 
 export interface Layout {
   /**
+   * Specifies the layout name.
+   */
+  name: string
+  /**
    * Specifies the path to the layout file.
    */
   path: string
@@ -32,4 +36,4 @@ export interface Layout {
   }
 }
 
-export type Layouts = Record<string, Layout>
+export type Layouts = Layout[]

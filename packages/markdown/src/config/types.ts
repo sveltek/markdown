@@ -70,7 +70,7 @@ export interface MarkdownConfig {
     rehype?: PluginList
   }
   /**
-   * Specifies a custom layout records.
+   * Specifies a custom layout array.
    *
    * Layout component serves as a wrapper for the markdown files, which means the page content is displayed via the component's children prop.
    *
@@ -80,7 +80,7 @@ export interface MarkdownConfig {
    */
   layouts?: Layouts
   /**
-   * Specifies a custom entry records.
+   * Specifies a custom entry array.
    *
    * Entry serves as a special configuration for markdown files, which means it is similar to layout but without the need to create a custom component file.
    *
