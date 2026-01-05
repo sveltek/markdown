@@ -12,9 +12,15 @@ const posix = (path: string): string => {
   return path.replace(/\\/g, '/')
 }
 
-const getRelativePath = (from: string, to: string): string => {
-  const path = posix(relative(resolve(from, '..'), to))
-  return path.startsWith('.') ? path : `./${path}`
+const getPath = (from: string, to: string): string => {
+  const isRelativePath = ['.svelte', '.ts', '.js', '.mjs'].some((ext) =>
+    to.endsWith(ext),
+  )
+  if (isRelativePath) {
+    const path = posix(relative(resolve(from, '..'), to))
+    return path.startsWith('.') ? path : `./${path}`
+  }
+  return to
 }
 
 const parseComponents = (filePath: string, components?: Components): string =>
@@ -22,12 +28,7 @@ const parseComponents = (filePath: string, components?: Components): string =>
     ?.map((value) => {
       const { form = 'default' } = value
 
-      let path = value.path
-      const isRelativePath = ['.svelte', '.ts', '.js', '.mjs'].some((ext) =>
-        path.endsWith(ext),
-      )
-      if (isRelativePath) path = getRelativePath(filePath, value.path)
-
+      let path = getPath(filePath, value.path)
       const name = form === 'default' ? `default as ${value.name}` : value.name
 
       return `import { ${name} } from "${path}";`
@@ -54,7 +55,7 @@ export function createSvelteInstance(
 
   if (comps) code += comps
   if (isLayout) {
-    const path = getRelativePath(filePath, layoutPath)
+    const path = getPath(filePath, layoutPath)
     code += `import ${meta.layoutName}, * as ${meta.componentName} from "${path}";\n`
   }
 

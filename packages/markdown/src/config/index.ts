@@ -15,11 +15,12 @@ import type { MarkdownConfig } from './types'
  *       author: 'Sveltek',
  *     },
  *   },
- *   layouts: {
- *     default: {
+ *   layouts: [
+ *     {
+ *       name: 'default',
  *       path: 'lib/content/layouts/default/layout.svelte',
  *     },
- *   },
+ *   ],
  * })
  * ```
  */

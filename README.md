@@ -91,11 +91,13 @@ export const markdownConfig = defineConfig({
       // other global data...
     },
   },
-  layouts: {
-    default: {
+  layouts: [
+    {
+      name: 'default',
       path: 'lib/content/layouts/default/layout.svelte',
     },
-    blog: {
+    {
+      name: 'blog',
       path: 'lib/content/layouts/blog/layout.svelte',
       plugins: {
         remark: [],
@@ -103,7 +105,7 @@ export const markdownConfig = defineConfig({
       },
     },
     // other layouts...
-  },
+  ],
 })
 ```
 
@@ -577,10 +579,10 @@ Content...
 
 ### layouts
 
-- Type: `Record<string, Layout>`
+- Type: `Layout[]`
 - Default: `undefined`
 
-Specifies a custom layout records.
+Specifies a custom layout array.
 
 Layout component serves as a wrapper for the markdown files, which means the page content is displayed via the component's children prop.
 
@@ -588,18 +590,20 @@ Layout component serves as a wrapper for the markdown files, which means the pag
 
 ```ts
 svelteMarkdown({
-  layouts: {
-    default: {
+  layouts: [
+    {
+      name: 'default',
       path: 'lib/content/layouts/default/layout.svelte', // Specifies the path to the layout file (required).
       plugins: {
         remark: [], // Specifies custom `remark` plugins at the layout-level (optional).
         rehype: [], // Specifies custom `rehype` plugins at the layout-level (optional).
       },
     },
-    blog: {
+    {
+      name: 'blog',
       path: 'lib/content/layouts/blog/layout.svelte',
     },
-  },
+  ],
 })
 ```
 
@@ -645,10 +649,10 @@ svelteMarkdown({
 
 ### entries
 
-- Type: `Record<string, Entry>`
+- Type: `Entry[]`
 - Default: `undefined`
 
-Specifies a custom entry records.
+Specifies a custom entry array.
 
 Entry serves as a special configuration for markdown files, which means it is similar to layout but without the need to create a custom component file.
 
@@ -658,14 +662,15 @@ Allows unique and straightforward customization for an individual markdown file.
 
 ```ts
 svelteMarkdown({
-  entries: {
-    blog: {
+  entries: [
+    {
+      name: 'blog',
       plugins: {
         remark: [], // Specifies custom `remark` plugins at the entry-level (optional).
         rehype: [], // Specifies custom `rehype` plugins at the entry-level (optional).
       },
     },
-  },
+  ],
 })
 ```
 
@@ -711,7 +716,7 @@ svelteMarkdown({
 
 ### components
 
-- Type: `object[]`
+- Type: `Component[]`
 - Default: `undefined`
 
 Defines global components that can be used in all markdown files without manual setup.

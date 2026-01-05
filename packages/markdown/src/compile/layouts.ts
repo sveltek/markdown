@@ -5,22 +5,18 @@ import type { FileData, Layout } from './types'
 export function getLayoutData(
   data: FileData,
   config: MarkdownConfig = {},
-): (Layout & { name: string | false }) | undefined {
+): Layout | undefined {
   const { layout } = data.frontmatter!
 
   if (!config.layouts || !layout) return
 
   const layoutName = isObject(layout) ? layout.name : layout
+  const layoutConfig = config.layouts.find(({ name }) => name === layoutName)
 
-  const layoutConfig = config.layouts[layoutName]
   if (!layoutConfig) {
-    throw new TypeError(
-      `Invalid layout name. Valid names are: ${Object.keys(config.layouts).join(', ')}.`,
-    )
+    const names = config.layouts.map((layout) => `"${layout.name}"`).join(', ')
+    throw new TypeError(`Invalid layout name. Valid names are: ${names}.`)
   }
 
-  return {
-    name: layoutName,
-    ...layoutConfig,
-  }
+  return layoutConfig
 }
