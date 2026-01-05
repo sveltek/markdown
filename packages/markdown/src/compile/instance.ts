@@ -3,8 +3,7 @@ import { print } from 'esrap'
 import ts from 'esrap/languages/ts'
 import { meta } from '@/shared'
 import type { AST } from 'svelte/compiler'
-import type { MarkdownConfig } from '@/types'
-import type { ASTScript } from './types'
+import type { ASTScript, Components } from './types'
 
 const posix = (path: string): string => {
   const isExtendedLengthPath = /^\\\\\?\\/.test(path)
@@ -18,9 +17,21 @@ const getRelativePath = (from: string, to: string): string => {
   return path.startsWith('.') ? path : `./${path}`
 }
 
-export const getImports = (imports: MarkdownConfig['imports']): string =>
-  imports
-    ?.map((value) => `${value.path};`)
+const parseComponents = (filePath: string, components?: Components): string =>
+  components
+    ?.map((value) => {
+      const { form = 'default' } = value
+
+      let path = value.path
+      const isRelativePath = ['.svelte', '.ts', '.js', '.mjs'].some((ext) =>
+        path.endsWith(ext),
+      )
+      if (isRelativePath) path = getRelativePath(filePath, value.path)
+
+      const name = form === 'default' ? `default as ${value.name}` : value.name
+
+      return `import { ${name} } from "${path}";`
+    })
     .join('\n')
     .concat('\n') || ''
 
@@ -29,23 +40,22 @@ export function createSvelteInstance(
   {
     filePath,
     layoutPath,
-    imports,
+    components,
   }: {
-    filePath?: string
+    filePath: string
     layoutPath?: string
-    imports?: MarkdownConfig['imports']
+    components?: Components
   },
 ): ASTScript {
   const isLayout = filePath && layoutPath
 
   let code = ''
-  const globals = getImports(imports)
+  const comps = parseComponents(filePath, components)
 
+  if (comps) code += comps
   if (isLayout) {
     const path = getRelativePath(filePath, layoutPath)
-    code = `${globals}import ${meta.layoutName}, * as ${meta.componentName} from "${path}";\n`
-  } else {
-    code = globals
+    code += `import ${meta.layoutName}, * as ${meta.componentName} from "${path}";\n`
   }
 
   if (!instance) {

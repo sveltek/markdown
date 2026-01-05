@@ -35,7 +35,7 @@ export async function compile(
     preprocessors = [],
     plugins: { remark = [], rehype = [] } = {},
     highlight = {},
-    imports,
+    components,
   } = config
 
   const file = new VFile({
@@ -115,7 +115,7 @@ export async function compile(
   const svelteInstance = createSvelteInstance(instance, {
     filePath: file.path,
     layoutPath: layout?.path,
-    imports,
+    components,
   })
   if (instance) s.remove(instance.start, instance.end)
 
