@@ -58,7 +58,10 @@ export const markdownConfig = defineConfig({
       },
     },
   },
-  imports: [
-    { path: `import GlobalButton from '$/components/button/Button.svelte'` },
+  components: [
+    {
+      name: 'GlobalButton',
+      path: 'src/components/button/Button.svelte',
+    },
   ],
 })
