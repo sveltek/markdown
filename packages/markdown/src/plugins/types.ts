@@ -7,6 +7,3 @@ export interface Plugins {
   remark?: PluginList
   rehype?: PluginList
 }
-
-export * from './rehype/highlight'
-export * from './rehype/highlight/types'

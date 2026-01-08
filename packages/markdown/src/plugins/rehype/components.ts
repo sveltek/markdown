@@ -2,7 +2,7 @@ import { visit } from 'unist-util-visit'
 import { meta } from '@/shared'
 import type { Root } from 'hast'
 import type { FileData } from '@/compile/types'
-import type { Plugin } from '@/plugins/types'
+import type { Plugin } from '../types'
 
 export const rehypeCreateComponents: Plugin<[], Root> = () => {
   return (tree, vfile) => {

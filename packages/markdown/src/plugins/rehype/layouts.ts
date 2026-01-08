@@ -4,7 +4,7 @@ import { preprocess, parse } from 'svelte/compiler'
 import type { AST } from 'svelte/compiler'
 import type { Root } from 'hast'
 import type { FileData } from '@/compile/types'
-import type { Plugin } from '@/plugins/types'
+import type { Plugin } from '../types'
 
 const getExportedNames = (module: AST.Root['module']): string[] => {
   const names: string[] = []

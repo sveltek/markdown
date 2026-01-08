@@ -1,6 +1,6 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from '@/plugins/types'
-import type { Layouts, Entries, Components, Highlight } from '@/compile/types'
+import type { Layouts, Entries, Components } from '@/compile/types'
 
 export interface MarkdownConfig {
   /**
@@ -99,10 +99,4 @@ export interface MarkdownConfig {
    * @default undefined
    */
   components?: Components
-  /**
-   * Defines custom syntax highlighting options.
-   *
-   * @default undefined
-   */
-  highlight?: Highlight
 }

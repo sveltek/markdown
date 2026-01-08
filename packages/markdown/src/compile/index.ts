@@ -16,7 +16,6 @@ import {
   rehypeRenderCode,
   rehypeCreateLayout,
   rehypeCreateComponents,
-  rehypeHighlight,
 } from '@/plugins'
 import { usePlugins } from '@/plugins/utils'
 import type { Processed } from 'svelte/compiler'
@@ -34,7 +33,6 @@ export async function compile(
   const {
     preprocessors = [],
     plugins: { remark = [], rehype = [] } = {},
-    highlight = {},
     components,
   } = config
 
@@ -55,7 +53,6 @@ export async function compile(
 
   if (isFalse(data.frontmatter?.plugins?.remark)) data.plugins!.remark = []
   if (isFalse(data.frontmatter?.plugins?.rehype)) data.plugins!.rehype = []
-  if (highlight) data.plugins?.rehype?.push([rehypeHighlight, highlight])
 
   const layout = getLayoutData(data, config)
   if (layout) {

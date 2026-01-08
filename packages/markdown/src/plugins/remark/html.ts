@@ -1,7 +1,7 @@
 import { toMarkdown } from 'mdast-util-to-markdown'
 import { visit, CONTINUE, SKIP } from 'unist-util-visit'
 import type { Root, Paragraph } from 'mdast'
-import type { Plugin } from '@/plugins/types'
+import type { Plugin } from '../types'
 
 const rgxSvelteBlock = /{[#:/@]\w+.*}/
 const rgxElementOrComponent = /<[A-Za-z]+[\s\S]*>/

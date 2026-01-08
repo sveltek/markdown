@@ -2,7 +2,7 @@ import { visit } from 'unist-util-visit'
 import { toHtml } from 'hast-util-to-html'
 import { escapeSvelte } from '@/utils'
 import type { Root } from 'hast'
-import type { Plugin } from '@/plugins/types'
+import type { Plugin } from '../types'
 
 interface Options {
   htmlTag?: boolean
