@@ -1,8 +1,0 @@
-.DS_Store
-node_modules
-*-lock.*
-*.log*
-.private
-.cache
-.env
-dist
