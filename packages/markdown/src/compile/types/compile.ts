@@ -1,8 +1,7 @@
-import type { MarkdownConfig } from '@/config/types'
+import type { MarkdownOptions } from '@/config/types'
 
-export interface CompileOptions {
+export interface CompileOptions extends MarkdownOptions {
   filename?: string
-  config?: MarkdownConfig
   /**
    * @experimental This option is experimental and may change at any time, so use it with caution.
    *

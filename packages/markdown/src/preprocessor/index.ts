@@ -35,7 +35,7 @@ export function svelteMarkdown(
       const isExtSupported = extensions.some((ext) => filename?.endsWith(ext))
       if (!isExtSupported) return
 
-      return await compile(content, { filename, options })
+      return await compile(content, { filename, ...options })
     },
   }
 }

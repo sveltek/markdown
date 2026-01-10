@@ -1,6 +1,6 @@
-import { parse } from 'yaml'
+import { parse as parseYaml } from 'yaml'
 import type { VFile } from 'vfile'
-import type { MarkdownConfig } from '@/config/types'
+import type { MarkdownOptions } from '@/config/types'
 import type { FileData } from './types'
 
 interface ParsedFile {
@@ -9,9 +9,9 @@ interface ParsedFile {
 
 export function parseFile(
   vfile: VFile,
-  config: MarkdownConfig = {},
+  { frontmatter }: { frontmatter?: MarkdownOptions['frontmatter'] } = {},
 ): ParsedFile {
-  const { frontmatter: { marker = '-', parser, defaults = {} } = {} } = config
+  const { marker = '-', parser, defaults = {} } = frontmatter || {}
 
   const parsedFile: ParsedFile = { svelte: '' }
 
@@ -31,7 +31,7 @@ export function parseFile(
   } else {
     const match = rgxFm.exec(file)
     if (match && match[1]) {
-      data.frontmatter = { ...defaults, ...parse(match[1]) }
+      data.frontmatter = { ...defaults, ...parseYaml(match[1]) }
       file = file.slice(match[0].length)
       vfile.value = file
     }

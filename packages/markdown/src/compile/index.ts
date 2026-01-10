@@ -23,18 +23,19 @@ import type { FileData, CompileOptions } from './types'
 
 export async function compile(
   source: string,
-  {
-    filename,
-    config = {},
-    htmlTag = true,
-    module: optionsModule = true,
-  }: CompileOptions,
+  options: CompileOptions = {},
 ): Promise<Processed> {
   const {
+    filename,
     preprocessors = [],
+    frontmatter,
     plugins: { remark = [], rehype = [] } = {},
+    layouts,
+    entries,
     components,
-  } = config
+    htmlTag = true,
+    module: optionModule = true,
+  } = options
 
   const file = new VFile({
     value: source,
@@ -47,14 +48,14 @@ export async function compile(
     },
   })
 
-  const parsed = parseFile(file, config)
+  const parsed = parseFile(file, { frontmatter })
 
   const data = file.data as FileData
 
   if (isFalse(data.frontmatter?.plugins?.remark)) data.plugins!.remark = []
   if (isFalse(data.frontmatter?.plugins?.rehype)) data.plugins!.rehype = []
 
-  const layout = getLayoutData(data, config)
+  const layout = getLayoutData(data, { layouts })
   if (layout) {
     data.layout = layout
     data.dependencies?.push(layout.path)
@@ -68,7 +69,7 @@ export async function compile(
     }
   }
 
-  const entry = getEntryData(data, config)
+  const entry = getEntryData(data, { entries })
   if (entry) {
     if (entry.plugins && isObject(data.frontmatter?.entry)) {
       if (isFalse(data.frontmatter?.entry?.plugins?.remark)) {
@@ -132,7 +133,7 @@ export async function compile(
   }
 
   if (svelteInstance.content) s.prepend(svelteInstance.content)
-  if (optionsModule) s.prepend(svelteModule.content)
+  if (optionModule) s.prepend(svelteModule.content)
 
   return {
     code: s.toString(),

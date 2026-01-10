@@ -1,22 +1,22 @@
 import { isObject } from '@/shared'
-import type { MarkdownConfig } from '@/config/types'
+import type { MarkdownOptions } from '@/config/types'
 import type { FileData, Layout } from './types'
 
 export function getLayoutData(
   data: FileData,
-  config: MarkdownConfig = {},
+  { layouts }: { layouts?: MarkdownOptions['layouts'] } = {},
 ): Layout | undefined {
   const { layout } = data.frontmatter!
 
-  if (!config.layouts || !layout) return
+  if (!layouts || !layout) return
 
   const layoutName = isObject(layout) ? layout.name : layout
-  const layoutConfig = config.layouts.find(({ name }) => name === layoutName)
+  const layoutOptions = layouts.find(({ name }) => name === layoutName)
 
-  if (!layoutConfig) {
-    const names = config.layouts.map((layout) => `"${layout.name}"`).join(', ')
+  if (!layoutOptions) {
+    const names = layouts.map((layout) => `"${layout.name}"`).join(', ')
     throw new TypeError(`Invalid layout name. Valid names are: ${names}.`)
   }
 
-  return layoutConfig
+  return layoutOptions
 }
