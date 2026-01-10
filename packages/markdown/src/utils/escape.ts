@@ -6,7 +6,7 @@
  * @example
  *
  * ```ts
- * import { escapeSvelte } from '@sveltek/markdown/utils'
+ * import { escapeSvelte } from '@sveltek/markdown'
  *
  * escapeSvelte(value)
  * ```
