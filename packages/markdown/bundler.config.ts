@@ -8,12 +8,6 @@ export default defineConfig({
       externals: [],
       input: './src/shared/index.ts',
     },
-    // Utils
-    { input: './src/utils/index.ts' },
-    {
-      dts: './src/utils/types.ts',
-      output: './dist/utils/index.d.ts',
-    },
     // Main
     {
       input: './src/index.ts',
@@ -23,12 +17,8 @@ export default defineConfig({
         /^svelte/,
         /^esrap/,
         '@/shared',
-        '@/utils',
       ],
-      paths: [
-        { find: '@/shared', replacement: './shared/index.js' },
-        { find: '@/utils', replacement: './utils/index.js' },
-      ],
+      paths: [{ find: '@/shared', replacement: './shared/index.js' }],
     },
     {
       dts: './src/types/index.ts',
