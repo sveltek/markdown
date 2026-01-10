@@ -1,7 +1,7 @@
 import { meta } from '@/shared'
 import { compile } from '@/compile'
 import type { PreprocessorGroup } from 'svelte/compiler'
-import type { MarkdownConfig } from '@/config/types'
+import type { MarkdownOptions } from '@/config/types'
 
 /**
  * Svelte Markdown Preprocessor.
@@ -24,16 +24,18 @@ import type { MarkdownConfig } from '@/config/types'
  *
  * @see [Repository](https://github.com/sveltek/markdown)
  */
-export function svelteMarkdown(config: MarkdownConfig = {}): PreprocessorGroup {
+export function svelteMarkdown(
+  options: MarkdownOptions = {},
+): PreprocessorGroup {
   return {
     name: meta.name,
     async markup({ content, filename }) {
-      const { extensions = ['.md'] } = config
+      const { extensions = ['.md'] } = options
 
       const isExtSupported = extensions.some((ext) => filename?.endsWith(ext))
       if (!isExtSupported) return
 
-      return await compile(content, { filename, config })
+      return await compile(content, { filename, options })
     },
   }
 }

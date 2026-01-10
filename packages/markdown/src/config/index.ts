@@ -1,4 +1,4 @@
-import type { MarkdownConfig } from './types'
+import type { MarkdownOptions } from './types'
 
 /**
  * Defines configuration via custom `options` object that contains all available settings.
@@ -23,7 +23,9 @@ import type { MarkdownConfig } from './types'
  *   ],
  * })
  * ```
+ *
+ *  @see [Repository](https://github.com/sveltek/markdown)
  */
-export function defineConfig(config: MarkdownConfig): MarkdownConfig {
-  return config
+export function defineConfig(options: MarkdownOptions): MarkdownOptions {
+  return options
 }
