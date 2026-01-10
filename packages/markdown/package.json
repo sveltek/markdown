@@ -15,10 +15,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.js"
     }
   },
   "files": [
@@ -44,8 +40,8 @@
   ],
   "scripts": {
     "build": "hyperbundler",
-    "format:markdown": "prettier --write .",
-    "publish:markdown": "pnpm build && pnpm publish"
+    "format": "prettier --write .",
+    "publish": "pnpm build && pnpm publish"
   },
   "peerDependencies": {
     "@types/node": ">=20.0.0",
