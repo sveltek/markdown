@@ -1,7 +1,7 @@
 import { meta } from '@/shared'
 import { compile } from '@/compile'
 import type { PreprocessorGroup } from 'svelte/compiler'
-import type { MarkdownOptions } from '@/config/types'
+import type { SvelteMarkdownOptions } from '@/config/types'
 
 /**
  * Svelte Markdown Preprocessor.
@@ -25,7 +25,7 @@ import type { MarkdownOptions } from '@/config/types'
  * @see [Repository](https://github.com/sveltek/markdown)
  */
 export function svelteMarkdown(
-  options: MarkdownOptions = {},
+  options: SvelteMarkdownOptions = {},
 ): PreprocessorGroup {
   return {
     name: meta.name,

@@ -1,10 +1,10 @@
 import { isObject } from '@/shared'
-import type { MarkdownOptions } from '@/config/types'
+import type { SvelteMarkdownOptions } from '@/config/types'
 import type { FileData, Entry } from './types'
 
 export function getEntryData(
   data: FileData,
-  { entries }: { entries?: MarkdownOptions['entries'] } = {},
+  { entries }: { entries?: SvelteMarkdownOptions['entries'] } = {},
 ): Entry | undefined {
   const { entry } = data.frontmatter!
 

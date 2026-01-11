@@ -1,4 +1,4 @@
-import type { MarkdownOptions } from './types'
+import type { SvelteMarkdownOptions } from './types'
 
 /**
  * Defines configuration via custom `options` object that contains all available settings.
@@ -26,6 +26,8 @@ import type { MarkdownOptions } from './types'
  *
  *  @see [Repository](https://github.com/sveltek/markdown)
  */
-export function defineConfig(options: MarkdownOptions): MarkdownOptions {
+export function defineConfig(
+  options: SvelteMarkdownOptions,
+): SvelteMarkdownOptions {
   return options
 }

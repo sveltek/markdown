@@ -2,7 +2,7 @@ import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from '@/plugins/types'
 import type { Layouts, Entries, Components } from '@/compile/types'
 
-export interface MarkdownOptions {
+export interface SvelteMarkdownOptions {
   /**
    * Specifies custom file extensions.
    *

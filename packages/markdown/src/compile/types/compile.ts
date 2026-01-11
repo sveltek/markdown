@@ -1,6 +1,6 @@
-import type { MarkdownOptions } from '@/config/types'
+import type { SvelteMarkdownOptions } from '@/config/types'
 
-export interface CompileOptions extends MarkdownOptions {
+export interface CompileOptions extends SvelteMarkdownOptions {
   filename?: string
   /**
    * @experimental This option is experimental and may change at any time, so use it with caution.
