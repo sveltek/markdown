@@ -5,15 +5,10 @@ import { meta } from '@/shared'
 import type { AST } from 'svelte/compiler'
 import type { ASTScript, Components } from './types'
 
-const posix = (path: string): string => {
-  const isExtendedLengthPath = /^\\\\\?\\/.test(path)
-  const hasNonAscii = /[^\0-\x80]+/.test(path)
-  if (isExtendedLengthPath || hasNonAscii) return path
-  return path.replace(/\\/g, '/')
-}
+const posix = (path: string): string => path.replace(/\\/g, '/')
 
 const getPath = (from: string, to: string): string => {
-  const isRelativePath = ['.svelte', '.ts', '.js', '.mjs'].some((ext) =>
+  const isRelativePath = ['.svelte', '.ts', '.mts', '.js', '.mjs'].some((ext) =>
     to.endsWith(ext),
   )
   if (isRelativePath) {
