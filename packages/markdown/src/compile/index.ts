@@ -14,10 +14,10 @@ import { createSvelteInstance } from './instance'
 import {
   remarkSvelteHtml,
   rehypeRenderCode,
-  rehypeCreateLayout,
-  rehypeCreateComponents,
+  rehypeLayout,
+  rehypeComponents,
+  usePlugins,
 } from '@/plugins'
-import { usePlugins } from '@/plugins/utils'
 import type { Processed } from 'svelte/compiler'
 import type { FileData, CompileOptions } from './types'
 
@@ -92,8 +92,8 @@ export async function compile(
     .use(usePlugins(layout?.plugins?.rehype))
     .use(usePlugins(entry?.plugins?.rehype))
     .use(rehypeRenderCode, { htmlTag })
-    .use(rehypeCreateLayout)
-    .use(rehypeCreateComponents)
+    .use(rehypeLayout)
+    .use(rehypeComponents)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(file)
 

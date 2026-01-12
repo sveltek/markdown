@@ -24,7 +24,7 @@ const getExportedNames = (module: AST.Root['module']): string[] => {
   return names
 }
 
-export const rehypeCreateLayout: Plugin<[], Root> = () => {
+export const rehypeLayout: Plugin<[], Root> = () => {
   return async (_, vfile) => {
     const data = vfile.data as FileData
 

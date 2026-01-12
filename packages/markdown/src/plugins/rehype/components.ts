@@ -4,7 +4,7 @@ import type { Root } from 'hast'
 import type { FileData } from '@/compile/types'
 import type { Plugin } from '../types'
 
-export const rehypeCreateComponents: Plugin<[], Root> = () => {
+export const rehypeComponents: Plugin<[], Root> = () => {
   return (tree, vfile) => {
     const data = vfile.data as FileData
     const { layout, components } = data
