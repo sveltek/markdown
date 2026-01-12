@@ -15,7 +15,6 @@ export default defineConfig({
         ...externals,
         ...Object.keys(dependencies),
         /^svelte/,
-        /^esrap/,
         '@/shared',
       ],
       paths: [{ find: '@/shared', replacement: './shared/index.js' }],
