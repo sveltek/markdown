@@ -1,10 +1,10 @@
 import { isObject } from '@/shared'
-import type { SvelteMarkdownOptions } from '@/config/types'
-import type { FileData, Layout } from './types'
+import type { Layout, Layouts } from '@/config/types'
+import type { FileData } from './types'
 
 export function getLayoutData(
   data: FileData,
-  { layouts }: { layouts?: SvelteMarkdownOptions['layouts'] } = {},
+  { layouts }: { layouts?: Layouts } = {},
 ): Layout | undefined {
   const { layout } = data.frontmatter!
 

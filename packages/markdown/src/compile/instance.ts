@@ -1,7 +1,8 @@
 import { resolve, relative } from 'node:path'
 import { print, type AST } from 'svelte/compiler'
 import { meta } from '@/shared'
-import type { ASTScript, Components } from './types'
+import type { Components } from '@/config/types'
+import type { ASTScript } from './types'
 
 const posix = (path: string): string => path.replace(/\\/g, '/')
 

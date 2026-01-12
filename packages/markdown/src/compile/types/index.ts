@@ -1,6 +1,2 @@
 export * from './file'
-export * from './frontmatter'
-export * from './layouts'
-export * from './entries'
-export * from './components'
 export * from './compile'

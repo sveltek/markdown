@@ -1,6 +1,9 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { PluginList } from '@/plugins/types'
-import type { Layouts, Entries, Components } from '@/compile/types'
+import type { FrontmatterOptions } from './frontmatter'
+import type { Layouts } from './layouts'
+import type { Entries } from './entries'
+import type { Components } from './components'
 
 export interface SvelteMarkdownOptions {
   /**
@@ -22,30 +25,7 @@ export interface SvelteMarkdownOptions {
    *
    * @default undefined
    */
-  frontmatter?: {
-    /**
-     * Specifies frontmatter global data to be applied to all markdown files.
-     *
-     * @default undefined
-     */
-    defaults?: Record<string, unknown>
-    /**
-     * Specifies the **start/end** symbols for the frontmatter content block.
-     *
-     * It only works in combination with the default parser.
-     *
-     * @default '-'
-     */
-    marker?: string
-    /**
-     * Specifies a custom parser for frontmatter.
-     *
-     * Allows adaptation to other formats such as `TOML` or `JSON`.
-     *
-     * @default undefined
-     */
-    parser?: (value: string) => Record<string, unknown> | void
-  }
+  frontmatter?: FrontmatterOptions
   /**
    * Specifies the **top-level** plugins that will be used for all markdown files.
    *

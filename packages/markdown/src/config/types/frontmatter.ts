@@ -67,3 +67,28 @@ export type Frontmatter = Record<string, unknown> & {
         }
       }
 }
+
+export interface FrontmatterOptions {
+  /**
+   * Specifies frontmatter global data to be applied to all markdown files.
+   *
+   * @default undefined
+   */
+  defaults?: Record<string, unknown>
+  /**
+   * Specifies the **start/end** symbols for the frontmatter content block.
+   *
+   * It only works in combination with the default parser.
+   *
+   * @default '-'
+   */
+  marker?: string
+  /**
+   * Specifies a custom parser for frontmatter.
+   *
+   * Allows adaptation to other formats such as `TOML` or `JSON`.
+   *
+   * @default undefined
+   */
+  parser?: (value: string) => Record<string, unknown> | void
+}

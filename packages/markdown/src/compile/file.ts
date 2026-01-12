@@ -1,6 +1,6 @@
 import { parse as parseYaml } from 'yaml'
 import type { VFile } from 'vfile'
-import type { SvelteMarkdownOptions } from '@/config/types'
+import type { FrontmatterOptions } from '@/config/types'
 import type { FileData } from './types'
 
 interface ParsedFile {
@@ -9,7 +9,7 @@ interface ParsedFile {
 
 export function parseFile(
   vfile: VFile,
-  { frontmatter }: { frontmatter?: SvelteMarkdownOptions['frontmatter'] } = {},
+  { frontmatter }: { frontmatter?: FrontmatterOptions } = {},
 ): ParsedFile {
   const { marker = '-', parser, defaults = {} } = frontmatter || {}
 
