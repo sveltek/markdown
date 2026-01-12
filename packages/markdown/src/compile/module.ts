@@ -1,6 +1,4 @@
-import { print } from 'esrap'
-import ts from 'esrap/languages/ts'
-import type { AST } from 'svelte/compiler'
+import { print, type AST } from 'svelte/compiler'
 import type { FileData, ASTScript } from './types'
 
 export function createSvelteModule(
@@ -19,7 +17,7 @@ export function createSvelteModule(
     return { start: 0, end: 0, content }
   }
 
-  const content = `<script module>\n${frontmatter}${print(module.content as any, ts()).code}\n</script>\n`
+  const content = `<script module>\n${frontmatter}${print(module.content).code}\n</script>\n`
 
   return { start: module.start, end: module.end, content }
 }

@@ -1,8 +1,6 @@
 import { resolve, relative } from 'node:path'
-import { print } from 'esrap'
-import ts from 'esrap/languages/ts'
+import { print, type AST } from 'svelte/compiler'
 import { meta } from '@/shared'
-import type { AST } from 'svelte/compiler'
 import type { ASTScript, Components } from './types'
 
 const posix = (path: string): string => path.replace(/\\/g, '/')
@@ -59,7 +57,7 @@ export function createSvelteInstance(
     return { start: 0, end: 0, content }
   }
 
-  const content = `<script>\n${code}${print(instance.content as any, ts()).code}\n</script>\n`
+  const content = `<script>\n${code}${print(instance.content).code}\n</script>\n`
 
   return { start: instance.start, end: instance.end, content }
 }
