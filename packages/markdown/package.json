@@ -59,7 +59,6 @@
   "dependencies": {
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
-    "esrap": "^2.2.1",
     "hast-util-to-html": "^9.0.5",
     "magic-string": "^0.30.21",
     "mdast-util-to-markdown": "^2.1.2",
