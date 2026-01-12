@@ -18,6 +18,8 @@ import type { RehypeHighlightOptions, HighlighterData } from './types'
  *   }
  * })
  * ```
+ *
+ * @see [Repository](https://github.com/sveltek/markdown/tree/main/packages/unplugins/rehype-highlight)
  */
 export const rehypeHighlight: Plugin<[RehypeHighlightOptions], Hast.Root> = (
   options: RehypeHighlightOptions,
