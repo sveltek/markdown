@@ -127,6 +127,19 @@ importers:
         specifier: '>=5.0.0'
         version: 5.9.3
 
+  packages/unplugins/remark-toc:
+    dependencies:
+      '@types/node':
+        specifier: '>=20.0.0'
+        version: 24.10.7
+      typescript:
+        specifier: '>=5.0.0'
+        version: 5.9.3
+    devDependencies:
+      '@sveltek/markdown':
+        specifier: workspace:*
+        version: link:../../markdown
+
   playgrounds/sveltekit:
     devDependencies:
       '@shikijs/langs':
@@ -144,6 +157,9 @@ importers:
       '@sveltek/rehype-shiki':
         specifier: workspace:*
         version: link:../../packages/unplugins/rehype-shiki
+      '@sveltek/remark-toc':
+        specifier: workspace:*
+        version: link:../../packages/unplugins/remark-toc
       svelte-check:
         specifier: ^4.3.5
         version: 4.3.5(picomatch@4.0.3)(svelte@5.46.3)(typescript@5.9.3)
