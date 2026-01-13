@@ -11,6 +11,8 @@
     "publish:markdown": "pnpm --filter @sveltek/markdown publish",
     "build:rehype-highlight": "pnpm --filter @sveltek/rehype-highlight build",
     "publish:rehype-highlight": "pnpm --filter @sveltek/rehype-highlight publish",
+    "build:rehype-shiki": "pnpm --filter @sveltek/rehype-shiki build",
+    "publish:rehype-shiki": "pnpm --filter @sveltek/rehype-shiki publish",
     "dev:play": "pnpm --filter playground-sveltekit dev",
     "build:play": "pnpm --filter playground-sveltekit build",
     "preview:play": "pnpm --filter playground-sveltekit preview",
@@ -28,10 +30,10 @@
     "@sveltek/eslint-config": "^1.1.3",
     "@sveltek/prettier-config": "^1.0.5",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^24.10.6",
+    "@types/node": "^24.10.7",
     "eslint": "^9.39.2",
     "prettier": "^3.7.4",
-    "svelte": "^5.46.1",
+    "svelte": "^5.46.3",
     "typescript": "^5.9.3"
   }
 }
