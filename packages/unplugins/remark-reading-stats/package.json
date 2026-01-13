@@ -1,0 +1,60 @@
+{
+  "name": "@sveltek/remark-reading-stats",
+  "version": "0.30.0",
+  "author": "Sveltek",
+  "description": "A custom Remark plugin that creates reading stats.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sveltek/markdown.git",
+    "directory": "packages/unplugins/remark-reading-stats"
+  },
+  "homepage": "https://github.com/sveltek/markdown",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "sveltek",
+    "svelte",
+    "sveltekit",
+    "reading-time",
+    "reading-stats",
+    "remark-reading-stats",
+    "svelte-markdown",
+    "unplugins",
+    "unplugin",
+    "markdown",
+    "plugins",
+    "plugin",
+    "unified",
+    "remark"
+  ],
+  "scripts": {
+    "build": "hyperbundler",
+    "format": "prettier --write .",
+    "publish": "pnpm build && pnpm publish"
+  },
+  "peerDependencies": {
+    "@sveltek/markdown": ">=0.20.0",
+    "@types/node": ">=20.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@sveltek/markdown": "workspace:*"
+  }
+}
