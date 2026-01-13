@@ -1,4 +1,4 @@
-import { preprocess, parse } from 'svelte/compiler'
+import { preprocess as preprocessSvelte, parse } from 'svelte/compiler'
 import { unified } from 'unified'
 import { VFile } from 'vfile'
 import MagicString from 'magic-string'
@@ -19,11 +19,11 @@ import {
   usePlugins,
 } from '@/plugins'
 import type { Processed } from 'svelte/compiler'
-import type { FileData, CompileOptions } from './types'
+import type { FileData, PreprocessOptions } from './types'
 
-export async function compile(
+export async function preprocess(
   source: string,
-  options: CompileOptions = {},
+  options: PreprocessOptions = {},
 ): Promise<Processed> {
   const {
     filename,
@@ -97,7 +97,7 @@ export async function compile(
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(file)
 
-  const { code, dependencies } = await preprocess(
+  const { code, dependencies } = await preprocessSvelte(
     parsed.svelte + String(processed),
     preprocessors,
     { filename },
@@ -135,9 +135,12 @@ export async function compile(
   if (svelteInstance.content) s.prepend(svelteInstance.content)
   if (optionModule) s.prepend(svelteModule.content)
 
+  const processedCode = s.toString()
+
   return {
-    code: s.toString(),
+    code: processedCode,
     map: s.generateMap({ source: filename }),
     dependencies: data.dependencies,
+    toString: () => processedCode,
   }
 }

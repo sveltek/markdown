@@ -1,5 +1,5 @@
 import { meta } from '@/shared'
-import { compile } from '@/compile'
+import { preprocess } from '@/preprocess'
 import type { PreprocessorGroup } from 'svelte/compiler'
 import type { SvelteMarkdownOptions } from '@/config/types'
 
@@ -35,7 +35,7 @@ export function svelteMarkdown(
       const isExtSupported = extensions.some((ext) => filename?.endsWith(ext))
       if (!isExtSupported) return
 
-      return await compile(content, { filename, ...options })
+      return await preprocess(content, { filename, ...options })
     },
   }
 }
