@@ -9,12 +9,14 @@
     "build": "vite build",
     "preview": "vite preview",
     "sync": "svelte-kit sync",
-    "format:play": "prettier --write ."
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "@shikijs/langs": "^3.21.0",
+    "@shikijs/themes": "^3.21.0",
     "@sveltejs/adapter-static": "^3.0.10",
-    "shiki": "^3.20.0",
-    "svelte-check": "^4.3.5",
-    "vite": "^7.3.0"
+    "@sveltek/markdown": "workspace:*",
+    "@sveltek/rehype-shiki": "workspace:*",
+    "svelte-check": "^4.3.5"
   }
 }
