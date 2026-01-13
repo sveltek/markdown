@@ -1,5 +1,5 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
-import type { PluginList } from '@/plugins/types'
+import type { PluginList } from '@/unplugins/types'
 import type { FrontmatterOptions } from './frontmatter'
 import type { Layouts } from './layouts'
 import type { Entries } from './entries'

@@ -1,4 +1,4 @@
-import type { PluginList } from '@/plugins/types'
+import type { PluginList } from '@/unplugins/types'
 
 export interface Layout {
   /**

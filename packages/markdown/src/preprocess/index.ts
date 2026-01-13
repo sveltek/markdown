@@ -17,7 +17,7 @@ import {
   rehypeLayout,
   rehypeComponents,
   usePlugins,
-} from '@/plugins'
+} from '@/unplugins'
 import type { Processed } from 'svelte/compiler'
 import type { FileData, PreprocessOptions } from './types'
 

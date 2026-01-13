@@ -1,5 +1,5 @@
 import type { PreprocessorGroup } from 'svelte/compiler'
-import type { Plugins } from '@/plugins/types'
+import type { Plugins } from '@/unplugins/types'
 import type { Frontmatter, Layout } from '@/config/types'
 
 export interface ASTScript {
