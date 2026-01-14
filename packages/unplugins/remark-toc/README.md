@@ -117,6 +117,52 @@ svelteMarkdown({
 })
 ```
 
+After installation and setup, access the `toc` array from `frontmatter` data.
+
+Keep in mind that this depends on how you load your markdown pages and may vary from project to project.
+
+Here is a simple example of a `Toc.svelte` component that gets page data from a parent layout and generates it within a template.
+
+```svelte
+<!-- Toc.svelte -->
+
+<script lang="ts">
+  import { page } from '$app/state'
+
+  let toc = $derived(page.data.page?.toc)
+</script>
+
+{#if toc}
+  <div>
+    <h3>On this page</h3>
+    <ul>
+      {#each toc as toc, index (index)}
+        <li>
+          <a href="#{toc.id}">
+            {toc.value}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
+{/if}
+```
+
+Or use it directly within markdown pages.
+
+```md
+---
+title: Blog page
+description: Read the latest news.
+---
+
+<ul>
+  {#each frontmatter.toc as toc}
+    <li><a href="#{toc.id}">{toc.value}</a></li>
+  {/each}
+</ul>
+```
+
 ## Options
 
 ### depth
