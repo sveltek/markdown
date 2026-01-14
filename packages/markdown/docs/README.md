@@ -2,6 +2,10 @@
 
 <br>
 
+### Breaking Changes ⚠️
+
+- [Migration](./get-started/migration.md)
+
 ### Getting Started
 
 - [Installation](./get-started/installation.md)
