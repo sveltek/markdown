@@ -6,26 +6,6 @@ import type { Plugin } from '../types'
 const rgxSvelteBlock = /{[#:/@]\w+.*}/
 const rgxElementOrComponent = /<[A-Za-z]+[\s\S]*>/
 
-const convertToComponent = (value: string): string => {
-  const tagMatch = value.match(/^::(\S+)/)
-  if (!tagMatch) return value
-
-  const tagName = tagMatch[1]
-  const isBlock = value.match(/::\s*$/)
-  const attrs =
-    value
-      .slice(tagName.length + 2)
-      .split('\n')[0]
-      .trim() || ''
-
-  if (isBlock) {
-    const content = value.split('\n').slice(1, -1).join('\n').trim()
-    return `<${tagName} ${attrs}>${content}</${tagName}>`
-  }
-
-  return `<${tagName} ${attrs} />`
-}
-
 const convertToHtml = (node: Paragraph): void => {
   let value = ''
 
@@ -43,12 +23,6 @@ export const remarkSvelteHtml: Plugin<[], Root> = () => {
       const [child] = node.children
 
       if (child?.type !== 'text' && child?.type !== 'html') return CONTINUE
-
-      if (child.value.startsWith('::')) {
-        child.value = convertToComponent(child.value)
-        convertToHtml(node)
-        return SKIP
-      }
 
       if (
         rgxSvelteBlock.test(child.value) ||
