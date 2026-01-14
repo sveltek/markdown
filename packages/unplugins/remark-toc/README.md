@@ -163,6 +163,20 @@ description: Read the latest news.
 </ul>
 ```
 
+## API
+
+### toc
+
+- Type: `TocItem[]`
+
+```ts
+interface TocItem {
+  id: string
+  depth: number
+  value: string
+}
+```
+
 ## Options
 
 ### depth
