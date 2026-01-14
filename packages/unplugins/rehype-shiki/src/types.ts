@@ -12,7 +12,7 @@ export * from '@shikijs/core'
 
 export interface LanguageRegistration {
   /**
-   * Specifies the lang ID (e.g `js`, `ts`, `svelte`).
+   * Specifies the lang ID (e.g. `js`, `ts`, `svelte`).
    */
   id: string
   /**
@@ -29,7 +29,7 @@ export interface LanguageRegistration {
 
 export interface ThemeRegistration {
   /**
-   * Specifies the theme ID (e.g `light`, `dark`, `dim`).
+   * Specifies the theme ID (e.g. `light`, `dark`, `dim`).
    */
   id: string
   /**
