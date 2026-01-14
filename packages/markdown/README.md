@@ -4,9 +4,9 @@
 
 <br>
 
-## Contribute
+## Documentation
 
-Check out the quick [guide](https://github.com/sveltek/markdown/blob/main/.github/CONTRIBUTING.md) for more info.
+Everything you need for a [quick start](https://github.com/sveltek/markdown).
 
 ## License
 
