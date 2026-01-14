@@ -17,6 +17,8 @@
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltek/markdown": "workspace:*",
     "@sveltek/rehype-shiki": "workspace:*",
+    "@sveltek/remark-reading-stats": "workspace:*",
+    "@sveltek/remark-toc": "workspace:*",
     "svelte-check": "^4.3.5"
   }
 }
