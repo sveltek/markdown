@@ -143,16 +143,16 @@ svelteMarkdown({
 
 Specifies an array of language registration.
 
-Also, language aliases are not enabled by default, meaning that if the language `id` is `js`, aliases like `javascript`, `mjs`, `jsx` will not work unless you explicitly specify them.
+Also, language aliases are not enabled by default, meaning if the language `id` is `js`, aliases like `javascript`, `mjs`, `jsx` etc. will not work unless you explicitly specify them.
 
 ```ts
 {
   langs: [
     { id: 'js', lang: import('@shikijs/langs/javascript') },
     {
-      id: 'ts', // Specifies the lang ID (e.g `js`, `ts`, `svelte`)
+      id: 'ts', // Specifies the lang ID (e.g. `js`, `ts`, `svelte`)
       lang: import('@shikijs/langs/typescript'), // Specifies the language input
-      alias: ['typescript', 'mts', 'cts', 'tsx'], // [Optional] Specifies a list of custom language aliases
+      alias: ['typescript', 'mts', 'cts', 'tsx'], // Specifies a list of custom language aliases
     },
     // ...
   ]
@@ -186,7 +186,7 @@ Specifies an array of theme registration.
       theme: import('@shikijs/themes/github-light'),
     },
     {
-      id: 'dark', // Specifies the theme ID (e.g `light`, `dark`, `dim`)
+      id: 'dark', // Specifies the theme ID (e.g. `light`, `dark`, `dim`)
       name: 'github-dark', // Specifies the theme name (e.g. `github-dark`, `github-light`)
       theme: import('@shikijs/themes/github-dark'), // Specifies the theme input
     },
