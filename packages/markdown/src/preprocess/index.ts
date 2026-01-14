@@ -135,12 +135,12 @@ export async function preprocess(
   if (svelteInstance.content) s.prepend(svelteInstance.content)
   if (optionModule) s.prepend(svelteModule.content)
 
-  const processedCode = s.toString()
+  const preprocessed = s.toString()
 
   return {
-    code: processedCode,
+    code: preprocessed,
     map: s.generateMap({ source: filename }),
     dependencies: data.dependencies,
-    toString: () => processedCode,
+    toString: () => preprocessed,
   }
 }
