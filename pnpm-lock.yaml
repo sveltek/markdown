@@ -170,6 +170,9 @@ importers:
       '@sveltek/rehype-shiki':
         specifier: workspace:*
         version: link:../../packages/unplugins/rehype-shiki
+      '@sveltek/remark-reading-stats':
+        specifier: workspace:*
+        version: link:../../packages/unplugins/remark-reading-stats
       '@sveltek/remark-toc':
         specifier: workspace:*
         version: link:../../packages/unplugins/remark-toc
