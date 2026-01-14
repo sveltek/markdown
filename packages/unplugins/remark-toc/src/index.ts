@@ -60,7 +60,7 @@ export const remarkToc: Plugin<[RemarkTocOptions?], Mdast.Root> = (
         })
       }
 
-      const data = (node.data || (node.data = {})) as {
+      const data = (node.data || (node.data = {})) as Mdast.HeadingData & {
         hProperties?: Hast.Properties
       }
       const props = data.hProperties || (data.hProperties = {})
