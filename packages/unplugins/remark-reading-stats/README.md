@@ -120,6 +120,53 @@ svelteMarkdown({
 })
 ```
 
+After installation and setup, access the `readingStats` object from `frontmatter` data.
+
+Keep in mind that this depends on how you load your markdown pages and may vary from project to project.
+
+Here is a simple example of a `ReadingTime.svelte` component that gets page data from a parent layout and generates it within a template.
+
+```svelte
+<!-- ReadingTime.svelte -->
+
+<script lang="ts">
+  import { page } from '$app/state'
+
+  let readingStats = $derived(page.data.page?.readingStats)
+</script>
+
+{#if readingStats}
+  <div>
+    <p>{readingStats.text}</p>
+  </div>
+{/if}
+```
+
+Or use it directly within markdown pages.
+
+```md
+---
+title: Support page
+description: Our friendly team is here to help.
+---
+
+Reading Time: {frontmatter.readingStats.text}
+```
+
+## API
+
+### readingStats
+
+- Type: `ReadingStats`
+
+```ts
+interface ReadingStats {
+  minutes: number
+  words: number
+  text: string
+}
+```
+
 ## Options
 
 ### wordsPerMinute
