@@ -1,28 +1,37 @@
-import { defineConfig } from '../../packages/markdown/dist/index.js'
-import {
-  remarkToc,
-  remarkReadingStats,
-  rehypeShiki,
-} from '../../packages/unplugins/dist/index.js'
-import type { ShikiOptions } from '../../packages/unplugins/dist/index.js'
+import { defineConfig } from '@sveltek/markdown'
+import { rehypeShiki, type RehypeShikiOptions } from '@sveltek/rehype-shiki'
+import { remarkReadingStats } from '@sveltek/remark-reading-stats'
+import { remarkToc } from '@sveltek/remark-toc'
 
-export const shikiConfig: ShikiOptions = {
-  langs: ['html', 'javascript', 'typescript', 'svelte', 'shellscript'],
-  codeToHtml: ({ lang, meta }) => ({
-    tabindex: false,
-    transformers: [
-      {
-        name: 'transformer-metadata',
-        pre(node) {
-          node.properties['data-theme'] = 'hypernym-dark'
-          node.properties['data-lang'] = `${lang}`
+export const rehypeShikiOptions: RehypeShikiOptions = {
+  themes: [
+    {
+      id: 'dark',
+      name: 'github-dark-default',
+      theme: import('@shikijs/themes/github-dark-default'),
+    },
+    // ...
+  ],
+  langs: [
+    { id: 'ts', lang: import('@shikijs/langs/typescript') },
+    // ...
+  ],
+  codeToHtml: ({ lang, meta }) => {
+    const lineNumbers = meta?.includes('line-numbers') || false
 
-          const isNumbers = meta?.includes('line-numbers') || false
-          node.properties['data-line-numbers'] = `${isNumbers}`
+    return {
+      transformers: [
+        {
+          name: 'transformer-metadata',
+          pre(node) {
+            node.properties['data-theme'] = 'hypernym-dark'
+            node.properties['data-lang'] = `${lang}`
+            node.properties['data-line-numbers'] = `${lineNumbers}`
+          },
         },
-      },
-    ],
-  }),
+      ],
+    }
+  },
 }
 
 export const markdownConfig = defineConfig({
@@ -45,7 +54,7 @@ export const markdownConfig = defineConfig({
     {
       name: 'about',
       plugins: {
-        rehype: [[rehypeShiki, shikiConfig]],
+        rehype: [[rehypeShiki, rehypeShikiOptions]],
       },
     },
     {
