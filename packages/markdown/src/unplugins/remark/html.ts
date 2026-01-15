@@ -1,35 +1,27 @@
-import { toMarkdown } from 'mdast-util-to-markdown'
-import { visit, CONTINUE, SKIP } from 'unist-util-visit'
-import type { Root, Paragraph } from 'mdast'
+import { visit } from 'unist-util-visit'
+import type { Root } from 'mdast'
 import type { Plugin } from '../types'
 
 const rgxSvelteBlock = /{[#:/@]\w+.*}/
 const rgxElementOrComponent = /<[A-Za-z]+[\s\S]*>/
 
-const convertToHtml = (node: Paragraph): void => {
-  let value = ''
-
-  for (const child of node.children) {
-    if (child.type === 'text' || child.type === 'html') value += child.value
-    else value += toMarkdown(child)
-  }
-
-  Object.assign(node, { type: 'html', value })
-}
-
 export const remarkSvelteHtml: Plugin<[], Root> = () => {
-  return (tree) => {
+  return (tree, vfile) => {
     visit(tree, 'paragraph', (node) => {
       const [child] = node.children
 
-      if (child?.type !== 'text' && child?.type !== 'html') return CONTINUE
+      if (child?.type !== 'text' && child?.type !== 'html') return
 
       if (
-        rgxSvelteBlock.test(child.value) ||
-        rgxElementOrComponent.test(child.value)
+        (rgxSvelteBlock.test(child.value) ||
+          rgxElementOrComponent.test(child.value)) &&
+        node.position
       ) {
-        convertToHtml(node)
-        return SKIP
+        const value = vfile.value.slice(
+          node.position.start.offset,
+          node.position.end.offset,
+        )
+        Object.assign(node, { type: 'html', value })
       }
     })
   }
