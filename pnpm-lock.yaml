@@ -56,15 +56,9 @@ importers:
       '@types/node':
         specifier: '>=20.0.0'
         version: 24.10.7
-      hast-util-to-html:
-        specifier: ^9.0.5
-        version: 9.0.5
       magic-string:
         specifier: ^0.30.21
         version: 0.30.21
-      mdast-util-to-markdown:
-        specifier: ^2.1.2
-        version: 2.1.2
       rehype-stringify:
         specifier: ^10.0.1
         version: 10.0.1
