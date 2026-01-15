@@ -38,9 +38,9 @@
     "@sveltek/eslint-config": "^1.1.3",
     "@sveltek/prettier-config": "^1.0.5",
     "@sveltek/tsconfig": "^1.0.1",
-    "@types/node": "^24.10.7",
+    "@types/node": "^24.10.8",
     "eslint": "^9.39.2",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "svelte": "^5.46.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
