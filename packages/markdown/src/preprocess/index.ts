@@ -13,7 +13,6 @@ import { createSvelteModule } from './module'
 import { createSvelteInstance } from './instance'
 import {
   remarkSvelteHtml,
-  rehypeRenderCode,
   rehypeLayout,
   rehypeComponents,
   usePlugins,
@@ -33,7 +32,6 @@ export async function preprocess(
     layouts,
     entries,
     components,
-    htmlTag = true,
     module: optionModule = true,
   } = options
 
@@ -91,7 +89,6 @@ export async function preprocess(
     .use(usePlugins(data.plugins?.rehype))
     .use(usePlugins(layout?.plugins?.rehype))
     .use(usePlugins(entry?.plugins?.rehype))
-    .use(rehypeRenderCode, { htmlTag })
     .use(rehypeLayout)
     .use(rehypeComponents)
     .use(rehypeStringify, { allowDangerousHtml: true })
