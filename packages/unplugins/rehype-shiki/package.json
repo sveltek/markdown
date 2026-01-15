@@ -40,7 +40,7 @@
   "scripts": {
     "build": "hyperbundler",
     "format": "prettier --write .",
-    "publish": "pnpm build && pnpm publish"
+    "publish:rehype-shiki": "pnpm build && pnpm publish"
   },
   "peerDependencies": {
     "@sveltek/markdown": ">=0.30.0",

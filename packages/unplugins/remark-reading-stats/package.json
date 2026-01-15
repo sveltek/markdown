@@ -39,7 +39,7 @@
   "scripts": {
     "build": "hyperbundler",
     "format": "prettier --write .",
-    "publish": "pnpm build && pnpm publish"
+    "publish:remark-reading-stats": "pnpm build && pnpm publish"
   },
   "peerDependencies": {
     "@sveltek/markdown": ">=0.20.0",
