@@ -9,9 +9,9 @@ interface ParsedFile {
 
 export function parseFile(
   vfile: VFile,
-  { frontmatter }: { frontmatter?: FrontmatterOptions } = {},
+  { frontmatter = {} }: { frontmatter?: FrontmatterOptions } = {},
 ): ParsedFile {
-  const { marker = '-', parser, defaults = {} } = frontmatter || {}
+  const { marker = '-', parser, defaults = {} } = frontmatter
 
   const parsedFile: ParsedFile = { svelte: '' }
 
