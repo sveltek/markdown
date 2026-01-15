@@ -55,7 +55,7 @@ importers:
         version: 4.0.4
       '@types/node':
         specifier: '>=20.0.0'
-        version: 24.10.7
+        version: 24.10.8
       magic-string:
         specifier: ^0.30.21
         version: 0.30.21
@@ -70,7 +70,7 @@ importers:
         version: 11.1.2
       svelte:
         specifier: '>=5.0.0'
-        version: 5.46.1
+        version: 5.46.3
       typescript:
         specifier: '>=5.0.0'
         version: 5.9.3
@@ -91,7 +91,7 @@ importers:
     dependencies:
       '@types/node':
         specifier: '>=20.0.0'
-        version: 24.10.7
+        version: 24.10.8
       typescript:
         specifier: '>=5.0.0'
         version: 5.9.3
@@ -109,14 +109,14 @@ importers:
         specifier: ^3.21.0
         version: 3.21.0
       '@sveltek/markdown':
-        specifier: '>=0.20.0'
-        version: 0.20.0(@types/node@24.10.7)(svelte@5.46.3)(typescript@5.9.3)
+        specifier: '>=0.30.0'
+        version: 0.30.0(@types/node@24.10.8)(svelte@5.46.3)(typescript@5.9.3)
       '@sveltek/rehype-highlight':
         specifier: workspace:*
         version: link:../rehype-highlight
       '@types/node':
         specifier: '>=20.0.0'
-        version: 24.10.7
+        version: 24.10.8
       typescript:
         specifier: '>=5.0.0'
         version: 5.9.3
@@ -125,7 +125,7 @@ importers:
     dependencies:
       '@types/node':
         specifier: '>=20.0.0'
-        version: 24.10.7
+        version: 24.10.8
       typescript:
         specifier: '>=5.0.0'
         version: 5.9.3
@@ -138,7 +138,7 @@ importers:
     dependencies:
       '@types/node':
         specifier: '>=20.0.0'
-        version: 24.10.7
+        version: 24.10.8
       typescript:
         specifier: '>=5.0.0'
         version: 5.9.3
@@ -754,8 +754,8 @@ packages:
       typescript:
         optional: true
 
-  '@sveltek/markdown@0.20.0':
-    resolution: {integrity: sha512-eZ9AyqXeTbh6GPsCEkJ6S7x+spbaff9Z2Rv/0YXswFk+4n4gmqD3MZasiYumhkkfMm9UIdykE2dRrw4u6nyw2w==}
+  '@sveltek/markdown@0.30.0':
+    resolution: {integrity: sha512-pw4VBU9MZrG1uhTFo/jEcCKpbv4gEXRj/LBfjkJRjFpztxgkkWdsDvqB+yp1vb/CpCJkd2M3CFnSHLgV9W3D6g==}
     peerDependencies:
       '@types/node': '>=20.0.0'
       svelte: '>=5.0.0'
@@ -803,9 +803,6 @@ packages:
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
-
-  '@types/node@24.10.7':
-    resolution: {integrity: sha512-+054pVMzVTmRQV8BhpGv3UyfZ2Llgl8rdpDTon+cUH9+na0ncBVXj3wTUKh14+Kiz18ziM3b4ikpP5/Pc0rQEQ==}
 
   '@types/node@24.10.8':
     resolution: {integrity: sha512-r0bBaXu5Swb05doFYO2kTWHMovJnNVbCsII0fhesM8bNRlLhXIuckley4a2DaD+vOdmm5G+zGkQZAPZsF80+YQ==}
@@ -1230,23 +1227,14 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  longest-streak@3.1.0:
-    resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
-
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
   mdast-util-from-markdown@2.0.2:
     resolution: {integrity: sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==}
 
-  mdast-util-phrasing@4.1.0:
-    resolution: {integrity: sha512-TqICwyvJJpBwvGAMZjj4J2n0X8QWp21b9l0o7eXyVJ25YNWYbJDVIyD1bZXE6WtV6RmKJVYmQAKWa0zWOABz2w==}
-
   mdast-util-to-hast@13.2.1:
     resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
-
-  mdast-util-to-markdown@2.1.2:
-    resolution: {integrity: sha512-xj68wMTvGXVOKonmog6LwyJKrYXZPvlwabaryTjLh9LuvovB/KAH+kvi8Gjj+7rJjsFi23nkUxRQv1KqSroMqA==}
 
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
@@ -1553,10 +1541,6 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
-
-  svelte@5.46.1:
-    resolution: {integrity: sha512-ynjfCHD3nP2el70kN5Pmg37sSi0EjOm9FgHYQdC4giWG/hzO3AatzXXJJgP305uIhGQxSufJLuYWtkY8uK/8RA==}
-    engines: {node: '>=18'}
 
   svelte@5.46.3:
     resolution: {integrity: sha512-Y5juST3x+/ySty5tYJCVWa6Corkxpt25bUZQHqOceg9xfMUtDsFx6rCsG6cYf1cA6vzDi66HIvaki0byZZX95A==}
@@ -2145,14 +2129,11 @@ snapshots:
       - svelte
       - ts-node
 
-  '@sveltek/markdown@0.20.0(@types/node@24.10.7)(svelte@5.46.3)(typescript@5.9.3)':
+  '@sveltek/markdown@0.30.0(@types/node@24.10.8)(svelte@5.46.3)(typescript@5.9.3)':
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      esrap: 2.2.1
-      hast-util-to-html: 9.0.5
       magic-string: 0.30.21
-      mdast-util-to-markdown: 2.1.2
       rehype-stringify: 10.0.1
       remark-parse: 11.0.0
       remark-rehype: 11.1.2
@@ -2162,7 +2143,7 @@ snapshots:
       vfile: 6.0.3
       yaml: 2.8.2
     optionalDependencies:
-      '@types/node': 24.10.7
+      '@types/node': 24.10.8
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -2204,10 +2185,6 @@ snapshots:
       '@types/unist': 3.0.3
 
   '@types/ms@2.1.0': {}
-
-  '@types/node@24.10.7':
-    dependencies:
-      undici-types: 7.16.0
 
   '@types/node@24.10.8':
     dependencies:
@@ -2660,8 +2637,6 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  longest-streak@3.1.0: {}
-
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -2683,11 +2658,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-phrasing@4.1.0:
-    dependencies:
-      '@types/mdast': 4.0.4
-      unist-util-is: 6.0.1
-
   mdast-util-to-hast@13.2.1:
     dependencies:
       '@types/hast': 3.0.4
@@ -2699,18 +2669,6 @@ snapshots:
       unist-util-position: 5.0.0
       unist-util-visit: 5.0.0
       vfile: 6.0.3
-
-  mdast-util-to-markdown@2.1.2:
-    dependencies:
-      '@types/mdast': 4.0.4
-      '@types/unist': 3.0.3
-      longest-streak: 3.1.0
-      mdast-util-phrasing: 4.1.0
-      mdast-util-to-string: 4.0.0
-      micromark-util-classify-character: 2.0.1
-      micromark-util-decode-string: 2.0.1
-      unist-util-visit: 5.0.0
-      zwitch: 2.0.4
 
   mdast-util-to-string@4.0.0:
     dependencies:
@@ -3109,24 +3067,6 @@ snapshots:
       postcss-selector-parser: 7.1.1
     optionalDependencies:
       svelte: 5.46.3
-
-  svelte@5.46.1:
-    dependencies:
-      '@jridgewell/remapping': 2.3.5
-      '@jridgewell/sourcemap-codec': 1.5.5
-      '@sveltejs/acorn-typescript': 1.0.8(acorn@8.15.0)
-      '@types/estree': 1.0.8
-      acorn: 8.15.0
-      aria-query: 5.3.2
-      axobject-query: 4.1.0
-      clsx: 2.1.1
-      devalue: 5.6.1
-      esm-env: 1.2.2
-      esrap: 2.2.1
-      is-reference: 3.0.3
-      locate-character: 3.0.0
-      magic-string: 0.30.21
-      zimmerframe: 1.1.4
 
   svelte@5.46.3:
     dependencies:
