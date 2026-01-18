@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@hypernym/bundler':
-        specifier: ^0.31.1
-        version: 0.31.1(@types/node@24.10.9)(typescript@5.9.3)
+        specifier: ^0.31.2
+        version: 0.31.2(@types/node@24.10.9)(typescript@5.9.3)
       '@hypernym/utils':
-        specifier: ^3.4.6
-        version: 3.4.6(@types/node@24.10.9)(typescript@5.9.3)
+        specifier: ^3.4.7
+        version: 3.4.7(@types/node@24.10.9)(typescript@5.9.3)
       '@sveltejs/kit':
-        specifier: ^2.49.5
-        version: 2.49.5(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))
+        specifier: ^2.50.0
+        version: 2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))
       '@sveltek/eslint-config':
         specifier: ^1.1.4
         version: 1.1.4(eslint@9.39.2)(svelte@5.46.4)(typescript@5.9.3)
@@ -157,7 +157,7 @@ importers:
         version: 3.21.0
       '@sveltejs/adapter-static':
         specifier: ^3.0.10
-        version: 3.0.10(@sveltejs/kit@2.49.5(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))
+        version: 3.0.10(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))
       '@sveltek/markdown':
         specifier: workspace:*
         version: link:../../packages/markdown
@@ -419,8 +419,8 @@ packages:
   '@hypernym/args@0.3.4':
     resolution: {integrity: sha512-4c7atkLJzIgUibN9EqP0v+PExE0T7UgY7hKfvXNciviM5LzUCiNgMpMB5aHeMlEVEtJCbrg+Chx4nZ56jkGvfg==}
 
-  '@hypernym/bundler@0.31.1':
-    resolution: {integrity: sha512-btswx0XyONFwlxMW0hR+ZCqg6xFdcKqJhXGBqqFuRPwby17qw/NZXlesnf3EvbAXIk/5rqY3zVpAXZ70pde6ug==}
+  '@hypernym/bundler@0.31.2':
+    resolution: {integrity: sha512-Jszb7fJKBs9wo7t8FQpXBvf7pzL0n3wFFfhRwAdTiN2wYgSSRK8GP690SHPzvhwYZwxkZt8uakkMdhebESBQtg==}
     hasBin: true
     peerDependencies:
       '@types/node': '>=20.0.0'
@@ -442,8 +442,8 @@ packages:
       typescript:
         optional: true
 
-  '@hypernym/utils@3.4.6':
-    resolution: {integrity: sha512-gPye+NP75hMGvDwU9fZGw5lRS+j3j0iLJlagUvgKHbJb8OrddVm/wDB+y1A2883SJdvmdFagMU89IazEkkzIQg==}
+  '@hypernym/utils@3.4.7':
+    resolution: {integrity: sha512-cwXZtugFsG1hhZ89hJUVj/HBpNv9+lmMvnqt6PdsQWnwjOMr4OMpaszcDyCvq09E1B/2b6pi1CizniMje+vDMQ==}
     peerDependencies:
       '@types/node': '>=20.0.0'
       typescript: '>=5.0.0'
@@ -714,8 +714,8 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
-  '@sveltejs/kit@2.49.5':
-    resolution: {integrity: sha512-dCYqelr2RVnWUuxc+Dk/dB/SjV/8JBndp1UovCyCZdIQezd8TRwFLNZctYkzgHxRJtaNvseCSRsuuHPeUgIN/A==}
+  '@sveltejs/kit@2.50.0':
+    resolution: {integrity: sha512-Hj8sR8O27p2zshFEIJzsvfhLzxga/hWw6tRLnBjMYw70m1aS9BSYCqAUtzDBjRREtX1EvLMYgaC0mYE3Hz4KWA==}
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -1458,8 +1458,8 @@ packages:
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
 
-  rolldown-plugin-dts@0.20.0:
-    resolution: {integrity: sha512-cLAY1kN2ilTYMfZcFlGWbXnu6Nb+8uwUBsi+Mjbh4uIx7IN8uMOmJ7RxrrRgPsO4H7eSz3E+JwGoL1gyugiyUA==}
+  rolldown-plugin-dts@0.21.2:
+    resolution: {integrity: sha512-yFOvVkkxmdGVBH4UwCu/ApQZQXI1kre+aQyOyrmDAwFfALRaX7JlEn+F3HDDj3hEFE/q3+kCSGYGxEZ8W5NsGg==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       '@ts-macro/tsc': ^0.3.6
@@ -1867,13 +1867,13 @@ snapshots:
 
   '@hypernym/args@0.3.4': {}
 
-  '@hypernym/bundler@0.31.1(@types/node@24.10.9)(typescript@5.9.3)':
+  '@hypernym/bundler@0.31.2(@types/node@24.10.9)(typescript@5.9.3)':
     dependencies:
       '@hypernym/args': 0.3.4
       '@hypernym/colors': 1.0.6(@types/node@24.10.9)(typescript@5.9.3)
-      '@hypernym/utils': 3.4.6(@types/node@24.10.9)(typescript@5.9.3)
+      '@hypernym/utils': 3.4.7(@types/node@24.10.9)(typescript@5.9.3)
       rolldown: 1.0.0-beta.60
-      rolldown-plugin-dts: 0.20.0(rolldown@1.0.0-beta.60)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.21.2(rolldown@1.0.0-beta.60)(typescript@5.9.3)
     optionalDependencies:
       '@types/node': 24.10.9
       typescript: 5.9.3
@@ -1888,7 +1888,7 @@ snapshots:
       '@types/node': 24.10.9
       typescript: 5.9.3
 
-  '@hypernym/utils@3.4.6(@types/node@24.10.9)(typescript@5.9.3)':
+  '@hypernym/utils@3.4.7(@types/node@24.10.9)(typescript@5.9.3)':
     optionalDependencies:
       '@types/node': 24.10.9
       typescript: 5.9.3
@@ -2075,11 +2075,11 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/adapter-static@3.0.10(@sveltejs/kit@2.49.5(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))':
+  '@sveltejs/adapter-static@3.0.10(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))':
     dependencies:
-      '@sveltejs/kit': 2.49.5(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))
+      '@sveltejs/kit': 2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))
 
-  '@sveltejs/kit@2.49.5(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))':
+  '@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(yaml@2.8.2))':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@sveltejs/acorn-typescript': 1.0.8(acorn@8.15.0)
@@ -2950,7 +2950,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  rolldown-plugin-dts@0.20.0(rolldown@1.0.0-beta.60)(typescript@5.9.3):
+  rolldown-plugin-dts@0.21.2(rolldown@1.0.0-beta.60)(typescript@5.9.3):
     dependencies:
       '@babel/generator': 7.28.6
       '@babel/parser': 7.28.6

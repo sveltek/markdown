@@ -32,9 +32,9 @@
     "bump": "taze -f -r --interactive"
   },
   "devDependencies": {
-    "@hypernym/bundler": "^0.31.1",
-    "@hypernym/utils": "^3.4.6",
-    "@sveltejs/kit": "^2.49.5",
+    "@hypernym/bundler": "^0.31.2",
+    "@hypernym/utils": "^3.4.7",
+    "@sveltejs/kit": "^2.50.0",
     "@sveltek/eslint-config": "^1.1.4",
     "@sveltek/prettier-config": "^1.0.6",
     "@sveltek/tsconfig": "^1.1.0",
