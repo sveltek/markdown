@@ -12,13 +12,13 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@shikijs/langs": "^3.21.0",
-    "@shikijs/themes": "^3.21.0",
+    "@shikijs/langs": "^3.23.0",
+    "@shikijs/themes": "^3.23.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltek/markdown": "workspace:*",
     "@sveltek/rehype-shiki": "workspace:*",
     "@sveltek/remark-reading-stats": "workspace:*",
     "@sveltek/remark-toc": "workspace:*",
-    "svelte-check": "^4.3.5"
+    "svelte-check": "^4.4.5"
   }
 }
