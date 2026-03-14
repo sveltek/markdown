@@ -12,8 +12,8 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@shikijs/langs": "^3.23.0",
-    "@shikijs/themes": "^3.23.0",
+    "@shikijs/langs": "^4.0.2",
+    "@shikijs/themes": "^4.0.2",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltek/markdown": "workspace:*",
     "@sveltek/rehype-shiki": "workspace:*",
