@@ -9,7 +9,8 @@ import type {
 } from '@shikijs/core'
 
 export * from '@shikijs/core'
-export type { Highlighter, HighlighterData } from '@sveltek/rehype-highlight'
+export type { Highlighter } from '@sveltek/rehype-highlight'
+export type { RehypeHighlightOptions, HighlighterData }
 
 export interface LanguageRegistration {
   /**
