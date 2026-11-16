@@ -39,17 +39,32 @@ export const remarkToc: Plugin<[RemarkTocOptions?], Mdast.Root> = (
     visit(tree, 'heading', (node) => {
       const [child] = node.children
 
+      const isTypeValid = child.type === 'text' && node.children.length === 1
+      const isDepthValid = node.depth > 1 && node.depth <= depth
+
+      if (!isTypeValid || !isDepthValid) return
+
       let value = ''
       let id = ''
 
-      if (child.type === 'text') {
-        value = child.value
-        id = value
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .trim()
-          .replace(/\s+/g, '-')
+      value = child.value
+      id = value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+
+      const data = (node.data || (node.data = {})) as Mdast.HeadingData & {
+        hProperties?: Hast.Properties
       }
+      const props = data.hProperties || (data.hProperties = {})
+
+      if (toc.some((h) => h.id === id)) {
+        i++
+        id = `${id}-${i}`
+      }
+      if (!props.id) props.id = id
+      toc.push({ id, depth: node.depth, value })
 
       if (links) {
         node.children = []
@@ -58,17 +73,6 @@ export const remarkToc: Plugin<[RemarkTocOptions?], Mdast.Root> = (
           url: `#${id}`,
           children: [{ type: 'text', value }],
         })
-      }
-
-      const data = (node.data || (node.data = {})) as Mdast.HeadingData & {
-        hProperties?: Hast.Properties
-      }
-      const props = data.hProperties || (data.hProperties = {})
-
-      if (node.depth > 1 && node.depth <= depth) {
-        if (toc.some((h) => h.id === id)) id = `${id}-${i + 1}`
-        if (!props.id) props.id = id
-        toc.push({ id, depth: node.depth, value })
       }
     })
 
