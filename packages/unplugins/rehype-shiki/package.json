@@ -56,8 +56,8 @@
     }
   },
   "dependencies": {
-    "@shikijs/core": "^4.0.2",
-    "@shikijs/engine-javascript": "^4.0.2",
+    "@shikijs/core": "^4.6.0",
+    "@shikijs/engine-javascript": "^4.6.0",
     "@sveltek/rehype-highlight": "workspace:*"
   }
 }
